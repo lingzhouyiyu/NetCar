@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function fullwin() {
+            var tel=getQueryString("tel");
+            // 这样调用：
+            //alert(tel);
+            window.location = "tel:" + tel;
+        }
+        function getQueryString(name) {
+          var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+          var r = window.location.search.substr(1).match(reg);
+          if (r != null) {
+            return unescape(r[2]);
+          }
+          return null;
+        }
+    </script>
+</head>
+<body onload="fullwin()">
+</body>
+</html>

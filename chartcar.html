@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>包车</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css?v=1.0" rel="stylesheet" />
+		<link href="maincss/index.css?v=1.0" rel="stylesheet" />
+
+	</head>
+
+	<body class="bc-text um-vp bc-bg">
+		<!--主首页-->
+		<div class="ub ub-ver index_page" id="mainpage">
+			<div class="flash">
+				<div class="swiper-container ub ub-f1">
+					<div class="ub ub-ac swiper-wrapper" style="height: auto !important;">
+						<div class="swiper-slide" style="height: auto !important;">
+							<div class="flash_img">
+								<img class="ub-img" src="common/images/slideimg01.jpg" />
+							</div>
+						</div>
+						<div class="swiper-slide" style="height: auto !important;">
+							<div class="flash_img">
+								<img class="ub-img" src="common/images/slideimg02.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ub ub-ver mainbox">
+				<div class="ub ub-ac navbox">
+					<div class="ub ub-ac ub-pc ub-f1 ub-fh nav-item" onclick="goindex()">
+						<div class="ub ub-ac">
+							<img class="ub subnav-img dhide" src="common/images/subimg01.jpg" />
+						</div>
+						<div class="ub ub-ac">出行</div>
+					</div>
+					<div class="ub ub-ac ub-pc ub-f1 ub-fh nav-item dhide" onclick="gofast()">
+						<div class="ub ub-ac">
+							<img class="ub subnav-img dhide" src="common/images/subimg02.jpg" />
+						</div>
+						<div class="ub ub-ac">闪送</div>
+					</div>
+					<div class="ub ub-ac ub-pc ub-f1 ub-fh nav-item  cur-nav">
+						<div class="ub ub-ac">
+							<img class="ub subnav-img" src="common/images/subimg03.jpg" />
+						</div>
+						<div class="ub ub-ac">包车</div>
+					</div>
+
+				</div>
+				<div class="ub ub-ver wrap_mainput">
+					<div class="ub ftb marb06">包车服务</div>
+					<div class="ub ub-ac marb06">
+						<div class="ub circle"></div>
+						<div class="ub">各种车型租赁、自驾车服务</div>
+					</div>
+					<div class="ub ub-ac marb06">
+						<div class="ub circle"></div>
+						<div class="ub">旅游服务</div>
+					</div>
+					<div class="ub ub-ac marb06">
+						<div class="ub circle"></div>
+						<div class="ub">包车服务</div>
+					</div>
+					<div class="ub ub-ac lasttel">
+						<div class="ub ub-ac">
+							<img class="ub ub-img telimg" src="common/images/index-tel.png" />
+						</div>
+						<div class="ub ub-ac">
+							<span class="sc-text umar-r">昆明地区</span>
+							<a class="colgloden02" href="tel:18808706601">18808706601</a>
+						</div>
+					</div>
+					<div class="ub ub-ac lasttel">
+						<div class="ub ub-ac telimg">
+
+						</div>
+						<div class="ub ub-ac">
+							<span class="sc-text umar-r">公务车出行</span>
+							<a class="colgloden02" href="tel:0870-2136366">0870-2136366</a>
+						</div>
+					</div>
+					<div class="ub ub-ac lasttel">
+						<div class="ub ub-ac telimg">
+
+						</div>
+						<div class="ub ub-ac">
+							<span class="sc-text umar-r">昭通商务车</span>
+							<a class="colgloden02" href="tel:18987013338">18987013338</a>
+						</div>
+					</div>
+					<div class="ub ub-ac ub-pc sc-text lookmore lookup">
+						<span>更多</span>
+						<span class="fa fa-angle-down"></span>
+					</div>
+					<div class="ub-ver moretel" style="display: none;">
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">镇雄商务车</span>
+								<a class="colgloden02" href="tel:0870-3130345">0870-3130345</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">镇雄地区</span>
+								<a class="colgloden02" href="tel:0870-3122888">0870-3122888</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">鲁甸地区</span>
+								<a class="colgloden02" href="tel:0870-8122959">0870-8122959</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">巧家地区</span>
+								<a class="colgloden02" href="tel:19984031298">19984031298</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">彝良地区</span>
+								<a class="colgloden02" href="tel:18287094070">18287094070</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">大关地区</span>
+								<a class="colgloden02" href="tel:0870-5627666">0870-5627666</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">盐津地区</span>
+								<a class="colgloden02" href="tel:0870-6632669">0870-6632669</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">永善地区</span>
+								<a class="colgloden02" href="tel:18388698669">18388698669</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">水富地区</span>
+								<a class="colgloden02" href="tel:0870-8638079">0870-8638079</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">绥江地区</span>
+								<a class="colgloden02" href="tel:19912771280">19912771280</a>
+							</div>
+						</div>
+						<div class="ub ub-ac lasttel">
+							<div class="ub ub-ac telimg">
+
+							</div>
+							<div class="ub ub-ac">
+								<span class="sc-text umar-r">威信地区</span>
+								<a class="colgloden02" href="tel:0870-6124398">0870-6124398</a>
+							</div>
+						</div>
+						<div class="ub ub-ac ub-pc sc-text lookmore lookdown">
+							<span>收起</span>
+							<span class="fa fa-angle-up"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ub ub-ac ub-pc">
+				<img class="logo-bg ub ub-img" src="common/images/logo-bg.png" />
+			</div>
+		</div>
+		<!--脚部-->
+		<div class="ub footer">
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goindex()">
+				<div class="ub footer_img">
+					<img class="dhide" src="common/images/foot01.png" />
+					<img src="common/images/foot01_active.png" />
+				</div>
+				<div class="ub ft085 colgloden">首页</div>
+			</div>
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goorders()">
+				<div class="ub footer_img">
+					<img src="common/images/foot02.png" />
+					<img class="dhide" src="common/images/foot02_active.png" />
+				</div>
+				<div class="ub ft085 col999">订单</div>
+			</div>
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goperson()">
+				<div class="ub footer_img">
+					<img src="common/images/foot03.png" />
+					<img class="dhide" src="common/images/foot03_active.png" />
+				</div>
+				<div class="ub ft085 col999">个人</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/idangerous.swiper.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js"></script>
+<script>
+	$(function() {
+		//幻灯片
+		var swiper = new Swiper('.swiper-container', {
+			loop: true,
+			grabCursor: true,
+			paginationClickable: true,
+			autoplay: 5000,
+		});
+	});
+	$('.lookup').on('click', function() {
+		$('.lookup').addClass('dhide');
+		$('.moretel').slideDown();
+	});
+	$('.lookdown').on('click', function() {
+		$('.moretel').slideUp();
+		$('.lookup').removeClass('dhide');
+
+	});
+</script>

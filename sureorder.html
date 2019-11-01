@@ -1,0 +1,1924 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>订单确认</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css?v=1.6.0" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/sureorder.css?v=1.6.1" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp mainbg">
+		<div class="ub ub-f1 ub-ver page01" id="mainpage" style="height: 100%; width: 100%;">
+			<div id="markmap" style="height: 100%;"></div>
+			<div class="ub floatlayer">
+				<div class="ub ub-ac ub-pc getcenter" style="position: absolute; z-index: 200; left: 10px; margin-top: -30px;">
+					<img style="width: 21px;" src="common/images/getloact.png" />
+				</div>
+				<div class="ub ub-ver  ub-f1 layerbox">
+					<div class="ub ub-ver ub-f1 layerbox-top">
+						<div class="ub ismorebox dhide" rel='diffent'>
+							<div class="ub ub-ac">
+								<img class="ub ub-img same-before checkbox-img dhide" src="common/images/checkbox-before.png" />
+								<img class="ub ub-img same-after checkbox-img" src="common/images/checkbox-after.png" />
+							</div>
+							<div class="ub ub-ac">所有乘客在同一地点接送</div>
+						</div>
+						<div class="ub addres-box">
+							<div class="ub ub-f1 ub-ver">
+								<a href="#startpage" class="ub ub-ac dbpage_item" id="start">
+									<div class="ub ub-ac ub-pc left-circle">起</div>
+									<div class="ub addr-item border-b ub-f1">
+										<div class="ub beginAddr txthide">
+											定位中...
+										</div>
+									</div>
+								</a>
+								<a href="#endpage" class="ub ub-ac dbpage_item" id="end">
+									<div class="ub ub-ac ub-pc left-circle">终</div>
+									<div class="ub addr-item ub-f1">
+										<div class="ub endAddr txthide">
+											详细目的地
+										</div>
+									</div>
+								</a>
+							</div>
+							<a href="#oldaddrpage" class="ub ub-ac dbpage_item dhide" id="oldaddr">
+								<div class="ub ub-ac ub-pc normal-txt">常用地址</div>
+							</a>
+						</div>
+						<div class="ub ub-ac ub-pc colgloden02 border-t saeme-use">
+							<div class="ub FFname"></div>
+							<div class="ub moreusers dhide">
+								等<span class="usernum">0</span>乘客
+							</div>
+						</div>
+						<div class="ub diffent-use dhide">
+							<div class="ub diffent-box">
+
+							</div>
+						</div>
+					</div>
+					<div class="ub ub-ver layerbox-bottom">
+						<div class="ub ub-ver layer-disinfor">
+							<div class="ub dis-item border-b">
+								<div class="ub ub-f1 ub-fh checkinfor dbdsicount" rel="true">
+									<div class="ub ub-f1 pre-item">
+										<div class="ub ub-f1">优惠券</div>
+										<div class="ub ub-ac">
+											<div class="ub ub-ac colgloden02">
+												-￥<span class="discountMoney">0</span>
+											</div>
+											<div class="ub ub-ac">
+												<img class="ub ub-img check-img dis-before" src="common/images/checkbox-before.png" />
+												<img class="ub ub-img check-img dis-after dhide" src="common/images/checkbox-after.png" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="ub ub-f1 ub-fh  checkinfor dbPrint" rel="true">
+									<div class="ub pre-item ub-f1 border-l">
+										<div class="ub ub-f1">打印车票</div>
+
+										<div class="ub ub-ac">
+											<img class="ub ub-img check-img print-before" src="common/images/checkbox-before.png" />
+											<img class="ub ub-img check-img print-after dhide" src="common/images/checkbox-after.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="ub dis-item">
+								<div class="ub ub-f1 ub-fh checkinfor safecheck" rel="checked">
+									<div class="ub ub-f1 pre-item">
+										<div class="ub ub-f1">购买保险</div>
+										<div class="ub ub-ac">
+											<div class="ub ub-ac colgloden02 dhide">
+												-￥<span class="safeprice">0</span>
+											</div>
+											<div class="ub ub-ac">
+												<img class="ub ub-img check-img radio_before dhide" src="common/images/checkbox-before.png" />
+												<img class="ub ub-img check-img radio_after" src="common/images/checkbox-after.png" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="ub ub-f1 ub-fh checkinfor dbrule" rel="true">
+									<div class="ub ub-f1 border-l  pre-item">
+										<div href="rule.html" class="ub ub-f1">
+											<span>已阅读</span>
+											<a href="rule.html" class="colgloden02 txt-line" style="color: #f29c5a;">购票须知</a>
+										</div>
+										<div class="ub ub-ac">
+											<img class="ub ub-img check-img rule-before dhide" src="common/images/checkbox-before.png" />
+											<img class="ub ub-img check-img rule-after" src="common/images/checkbox-after.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="ub payfooter">
+							<div class="ub ub-f1 ub-fh ub-ac ub-pc look_pay" rel="up">
+								<div class="ub sfooter_left">
+									<span>总价:</span>
+									<span class="colgloden02">￥</span><span class="totalMoney colgloden02">0</span>
+								</div>
+								<div class="ub umar-l sc-text fa fa-caret-down ft125 dbfsign"></div>
+							</div>
+							<div class="ub ub-f1 ub-fh ub-ac ub-pc sfooter_right gotopay">
+								支付
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--选择出发地-->
+			<div class="ub ub-ver switch_page dhide" id="startpage">
+				<div class="search_top ub">
+					<div class="ub ub-ac ub-f1">
+						<div class="ub ub-ac umar-l umar-r colgloden">搜索</div>
+						<div class="ub search_line marr06 marl06"></div>
+						<div class="ub ub-f1 uinput">
+							<input class="ub ub-f1 search_addrput" id="searchcfd" type="text" placeholder="请输入你的出发地" />
+						</div>
+						<div class="ub ub-ac search_putclear">
+							<img class="ub ub-img search_clear" src="common/images/close_img01.png" />
+						</div>
+						<div class="ub search_line marl06"></div>
+						<div class="ub ub-ac marl06  marr06 sc-text search_exit">取消</div>
+					</div>
+				</div>
+				<div class="ub ub-ver search_content">
+					<div class="ub ub-f1 ub-ac start_conttop content_stop dhide">
+						<div class="ub ub-f1 ub-fh ub-ac dbadders" id="nearaddr">
+							<div class="ub ub-ac">
+								<img class="ub ub-img addr_img01 startimg01 dbaddrsub before_addr dhide" src="common/images/addr01.png" />
+								<img class="ub ub-img addr_img01 startimg02 dbaddrsub after_addr" src="common/images/addr01_active.png" />
+							</div>
+							<div class="ub sc-text colgloden starttitle01 addrsubtitle">附近地址</div>
+						</div>
+						<div class="ub search_line marl06"></div>
+						<div class="ub ub-f1 ub-pc ub-fh ub-ac dbadders" id="hisaddr">
+							<div class="ub ub-ac">
+								<img class="ub ub-img addr_img01 startimg03 dbaddrsub addr_img02 before_addr" src="common/images/addr02.png" />
+								<img class="ub ub-img addr_img01 startimg04 dbaddrsub addr_img02 after_addr dhide" src="common/images/addr02_active.png" />
+							</div>
+							<div class="ub sc-text starttitle02 addrsubtitle">历史地址</div>
+						</div>
+					</div>
+					<div class="ub ub-ver addrcontlist" style="height: auto; overflow: hidden;" id="nearaddrlist">
+						<div class="startfavor-list">
+							<div class="auto-item" id="amap-sug0">
+								昆明站<span class="auto-item-span">云南省昆明市官渡区11111</span>
+							</div>
+						</div>
+						<!-- <div class="beginrecomend recomend_img dhide auto-item">
+
+						</div> -->
+						<div class="startlist cfdlist" style="overflow: hidden; position: relative !important; left: 0px !important; display: block; top: 0px !important; width: 100% !important; visibility: visible;"
+						 id="cfdlist">
+
+						</div>
+					</div>
+
+					<div class="ub ub-ver addrcontlist dhide" id="hisaddrlist">
+						<div class="startlist cfdlist">
+							<ol class="beginhis_list">
+
+							</ol>
+							<div class="ub ub-ac ub-pc nohistory nobeginrecord dhide">
+								暂无历史记录！
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mapbox">
+					<div id="startmap" style="height: 100%;"></div>
+					<div class="ub ub-ac ub-pc map_contbox dhide">
+						<div class="ub ub-ac ub-pc map_conttxt">
+							<span class="tipstxt">已超出免费接送范围,请联系客服</span>
+							<a class="outtel" href=""></a>
+							<span class="fa fa-caret-down ft125 mapsign"></span>
+						</div>
+					</div>
+					<div class="qmap_bottom">
+						<div class="ub ub-f1 qmap_btmmain">
+							<div class="ub ub-ac ub-pc btmmark">
+								<img class="ub ub-img" src="common/images/map_mark.png" />
+							</div>
+							<div class="ub ub-f1 qmap_txtbox">
+								<div class="ub ub-ac ub-f1 qmap_txt">
+
+								</div>
+							</div>
+							<div class="ub ub-ac ub-pc qmap_sure">
+								确定
+							</div>
+						</div>
+						<div class="qmap_mark dhide">
+							<img src="common/images/map_mark.png" />
+						</div>
+					</div>
+				</div>
+				<div class="ub ub-ac ub-pc startcenter" style="position: absolute; z-index: 999; right: 10px; top: 100px;">
+					<div class="ub ub-ac ub-pc" style="background: #fff; border: 1px solid #e1e1e1; width: 40px; height: 40px;">
+						<img class="ub ub-img" style="width: 20px;" src="common/images/getloact02.png" />
+					</div>
+				</div>
+				<div class="ub ub-ac ub-pc startrang" style="position: absolute; z-index: 999; right: 10px; top: 143px;">
+					<div class="ub ub-ac ub-ver ub-pc" style="background: #fff; border: 1px solid #e1e1e1; width: 40px; height: 40px;">
+						<img class="ub ub-img" style="width: 16px;" src="common/images/rang.png" />
+						<div class="ub" style="font-size: 0.7em;">接送区</div>
+					</div>
+				</div>
+			</div>
+			<!--选择目的地-->
+			<div class="ub ub-ver switch_page dhide" id="endpage">
+				<div class="search_top ub">
+					<div class="ub ub-ac ub-f1">
+						<div class="ub ub-ac umar-l umar-r colgloden">搜索</div>
+						<div class="ub search_line marr06 marl06"></div>
+						<div class="ub ub-f1 uinput">
+							<input class="ub ub-f1 search_addrput searchmdd" id="searchmdd" type="text" placeholder="请输入你的目的地" />
+						</div>
+						<div class="ub ub-ac search_putclear">
+							<img class="ub ub-img search_clear" src="common/images/close_img01.png" />
+						</div>
+						<div class="ub search_line marl06"></div>
+						<div class="ub ub-ac marl06  marr06 sc-text search_exit">取消</div>
+					</div>
+				</div>
+				<div class="ub ub-ver search_content">
+					<div class="ub ub-f1 ub-ac start_conttop content_stop dhide">
+						<div class="ub ub-f1 ub-fh ub-ac dbmdadders" id="dbmdnear">
+							<div class="ub ub-ac">
+								<img class="ub ub-img addr_img01 startimg01 dbaddrsub before_addr dhide" src="common/images/addr01.png" />
+								<img class="ub ub-img addr_img01 startimg02 dbaddrsub after_addr" src="common/images/addr01_active.png" />
+							</div>
+							<div class="ub sc-text colgloden starttitle01 addrsubtitle">附近地址</div>
+						</div>
+						<div class="ub search_line marl06"></div>
+						<div class="ub ub-f1 ub-pc ub-fh ub-ac dbadders" id="dbmdhis">
+							<div class="ub ub-ac">
+								<img class="ub ub-img addr_img01 startimg03 dbaddrsub addr_img02 before_addr" src="common/images/addr02.png" />
+								<img class="ub ub-img addr_img01 startimg04 dbaddrsub addr_img02 after_addr dhide" src="common/images/addr02_active.png" />
+							</div>
+							<div class="ub sc-text starttitle02 addrsubtitle">历史地址</div>
+						</div>
+					</div>
+					<div class="ub ub-ver addrcontlist dhide" style="height: auto; overflow: hidden;" id="dbmdnearlist">
+						<div class="endfavor-list">
+							
+						</div>
+						<!-- <div class="endrecomend recomend_img dhide auto-item">
+
+						</div> -->
+						<div class="startlist mddlist" style="overflow: hidden; position: relative !important; left: 0px !important; display: block; top: 0px !important; width: 100% !important; visibility: visible;"
+						 id="mddlist">
+
+						</div>
+					</div>
+					<div class="ub ub-ver addrcontlist dhide" id="dbmdhislist">
+						<div class="startlist mddlist ">
+							<ol class="endhis_list">
+
+							</ol>
+							<div class="ub ub-ac ub-pc nohistory nobeginrecord dhide">
+								暂无历史记录！
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mapbox">
+					<div id="endmap" style="height: 100%;"></div>
+					<div class="ub ub-ac ub-pc map_contbox dhide">
+						<div class="ub ub-ac ub-pc map_conttxt">
+							<span class="tipstxt">已超出免费接送范围,请联系客服</span>
+							<a class="outtel" href=""></a>
+							<span class="fa fa-caret-down ft125 mapsign"></span>
+						</div>
+					</div>
+					<div class="qmap_bottom">
+						<div class="ub ub-f1 qmap_btmmain">
+							<div class="ub ub-ac ub-pc btmmark">
+								<img class="ub ub-img" src="common/images/map_mark02.png" />
+							</div>
+							<div class="ub ub-f1 qmap_txtbox">
+								<div class="ub ub-ac ub-f1 endmap_txt">
+
+								</div>
+							</div>
+							<div class="ub ub-ac ub-pc endmap_sure">
+								确定
+							</div>
+						</div>
+						<div class="qmap_mark dhide">
+							<img src="common/images/map_mark.png" />
+						</div>
+					</div>
+				</div>
+				<div class="ub ub-ac ub-pc endcenter" style="position: absolute; z-index: 999; right: 10px; top: 100px;">
+					<div class="ub ub-ac ub-pc" style="background: #fff; border: 1px solid #e1e1e1; width: 40px; height: 40px;">
+						<img class="ub ub-img" style="width: 20px;" src="common/images/getloact02.png" />
+					</div>
+				</div>
+				<div class="ub ub-ac ub-pc endrang" style="position: absolute; z-index: 999; right: 10px; top: 143px;">
+					<div class="ub ub-ac ub-ver ub-pc" style="background: #fff; border: 1px solid #e1e1e1; width: 40px; height: 40px;">
+						<img class="ub ub-img" style="width: 16px;" src="common/images/rang.png" />
+						<div class="ub" style="font-size: 0.7em;">接送区</div>
+					</div>
+				</div>
+			</div>
+			<!--常用地址-->
+			<div class="ub ub-ver switch_page dhide" id="oldaddrpage">
+				<div class="ub ub-ver oldaddr-list">
+					<div class="ub oldaddr-item">
+						<div class="ub ub-ver ub-f1">
+							<div class="ub ub-ac marb06">
+								<div class="ub ub-ac ub-pc left-circle">起</div>
+								<div class="ub ub-f1">
+									高新招商大厦高新招商大厦
+								</div>
+							</div>
+							<div class="ub ub-ac">
+								<div class="ub ub-ac ub-pc left-circle">终</div>
+								<div class="ub ub-f1">
+									<div class="ub">
+										高新招商大厦高新招商大厦
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="ub ub-ac fa fa-angle-right ft125 sc-text"></div>
+					</div>
+					<div class="ub oldaddr-item">
+						<div class="ub ub-ver ub-f1">
+							<div class="ub ub-ac marb06">
+								<div class="ub ub-ac ub-pc left-circle">起</div>
+								<div class="ub ub-f1">
+									高新招商大厦高新招商大厦
+								</div>
+							</div>
+							<div class="ub ub-ac">
+								<div class="ub ub-ac ub-pc left-circle">终</div>
+								<div class="ub ub-f1">
+									<div class="ub">
+										高新招商大厦高新招商大厦
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="ub ub-ac fa fa-angle-right ft125 sc-text"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--超出范围弹窗-->
+			<div class="ub ub-ac ub-pc outdialog_box dhide">
+				<div class="ub ub-ver outdialog_main">
+					<div class="ub ub-ac ub-pc outtitle">
+						系统提示
+					</div>
+					<div class="ub ub-ac ub-pc outtxt">
+						出发地超出接送范围，请联系客服下单！
+					</div>
+					<div class="ub ub-f1 out_btnbox">
+						<div class="ub ub-ac ub-pc ub-f1 ub-fh false_btn">
+							否
+						</div>
+						<a href="#" class="ub ub-ac ub-pc ub-f1 ub-fh bc-text true_btn">
+							是
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="diffenttemp dhide">
+				<div class="ub ub-ac diffent-item">
+					<div class="ub ub-ac ub-pc ub-ver diffent-main">
+						<div class="ub ub-ac ub-pc ft09 Fname">
+
+						</div>
+						<div class="ub ub-ac ub-pc addr-warn dhide">
+							<div class="ub ub-ac">
+								<img class="ub ub-img warnimg" src="common/images/warm01.png" />
+							</div>
+							<div class="ub ub-ac ft075">地址未填</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--底部弹出层-->
+			<div class="pay_detail dhide">
+				<div class="ub ub-f1 pay_deaillmain sc-text">
+					<div class="ub ub-f1 ub-ver bg-white ft085" style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+						<div class="ub ub-ac paydeail_top">支付明细</div>
+						<div class="ub ub-ac paydeail_item">
+							<div class="ub">
+								汽车票
+							</div>
+							<div class="ub marl1">
+								￥<span class="carmoney">0</span>元
+							</div>
+						</div>
+						<div class="ub ub-ac paydeail_item safecheck" rel="checked">
+							<div class="ub">
+								<div class="ub">
+									保险
+								</div>
+								<div class="ub  marl1">
+									￥<span class="fullsafe">0</span>元
+									<!--<span class="safenum">0</span>份-->
+								</div>
+							</div>
+						</div>
+						<div class="ub ub-ac paydeail_item">
+							<div class="ub">
+								抵扣
+							</div>
+							<div class="ub marl1">
+								<span>-</span> ￥
+								<span class="totaldiscount">0</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="favortemp">
+				<div class="auto-item favor-item" id="amap-sug0">
+					
+				</div>
+			</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js?v=2.0"></script>
+
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=6DXBZ-XJEWF-SAEJ3-JIAWD-YP2UV-6VFAJ"></script>
+<script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=cb46b91e0c80085a4c0e88839f40650f"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.5&key=cb46b91e0c80085a4c0e88839f40650f&plugin=AMap.Autocomplete"></script>
+
+<script type="text/javascript" src='//webapi.amap.com/maps?v=1.4.5&key=cb46b91e0c80085a4c0e88839f40650f&plugin=AMap.ToolBar'></script>
+<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+<script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js?v=1.6.2"></script>
+<script>
+	var ucode, ustate, uappid, uAppSecret;
+	$(function() {
+		location.hash = 'mainpage';
+		window.onhashchange = function(e) {
+			var oldHash = e.oldURL.split('#')[1];
+			var newHash = e.newURL.split('#')[1];
+			if (oldHash == "mainpage") {
+				return;
+			}
+			$("#" + oldHash).addClass("pt-page-moveToTop").removeClass("pt-page-moveFromTop");
+
+		};
+		(function($) {
+			$.getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]);
+				return null;
+			}
+		})(jQuery);
+
+		ucode = $.getUrlParam('code');
+		ustate = $.getUrlParam("state");
+		sendcode();
+		getuserlist();
+		totalmoney(); //计算总价
+		getLocation();
+		makemdmap();
+		getfavor();
+		getendfavor();
+
+	});
+
+	function sendcode() {
+		var furl = "/AboutClassAPIManage/CarOrderAPI/AddConvertOpenid";
+		var queryJson = {
+			state: ustate,
+			code: ucode
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "post",
+			async: false,
+			dataType: "json",
+			data: queryJson,
+			success: function(result) {
+				//var message = result.message;
+				//alert(message);
+			}
+		});
+	}
+
+	function dbgoback() {
+		$(".switch_page").addClass("pt-page-moveToTop").removeClass("pt-page-moveFromTop");
+
+	}
+
+	//关闭目的选择页面
+	$(".search_exit").click(function() {
+		dbgoback();
+	});
+
+	var ClassId = localStorage.getItem("ClassId");
+	var openId = localStorage.getItem("openid");
+	var surechange = localStorage.getItem("surechange");
+	var StartStationName = localStorage.getItem("StartStationName");
+	var EndStationName = localStorage.getItem("EndStationName");
+	var startpoints, endpoints;
+	var ispoint, exparry = [];
+	var issame = 1;
+	var dbsame = 0;
+	//是否在同一接送点点击
+	$('.ismorebox').on('click', function() {
+		var rel = $(this).attr("rel");
+		if (rel == "same") {
+			$(".saeme-use").removeClass("dhide");
+			$(".diffent-use").addClass("dhide");
+			$(".same-before").addClass("dhide");
+			$(".same-after").removeClass("dhide");
+			$(".ismorebox").attr("rel", "diffent");
+			issame = 1;
+			var beginAddressLat = $(".curdiffent").attr("beginAddressLat");
+			var beginAddressLng = $(".curdiffent").attr("beginAddressLng");
+			var beginAddress = $(".curdiffent").attr("startputtxt");
+			var endAddressLng = $(".curdiffent").attr("endAddressLng");
+			var endAddressLat = $(".curdiffent").attr("endAddressLat");
+			var endAddress = $(".curdiffent").attr("endputtxt");
+			$(".diffent-box .diffent-main").attr("beginAddressLat", beginAddressLat);
+			$(".diffent-box .diffent-main").attr("beginAddressLng", beginAddressLng);
+			$(".diffent-box .diffent-main").attr("startputtxt", beginAddress);
+			$(".diffent-box .diffent-main").attr("endAddressLng", endAddressLng);
+			$(".diffent-box .diffent-main").attr("endAddressLat", endAddressLat);
+			$(".diffent-box .diffent-main").attr("endputtxt", endAddress);
+		}
+		if (rel == "diffent") {
+			$(".saeme-use").addClass("dhide");
+			$(".diffent-use").removeClass("dhide");
+			$(".same-before").removeClass("dhide");
+			$(".same-after").addClass("dhide");
+			$(".ismorebox").attr("rel", "same")
+			issame = 0;
+		}
+		dbsame = 1;
+		markmap.remove(markers);
+		setmarks("endlnglats");
+		setmarks("startlnglats");
+	})
+	//优惠券点击
+	$('.dbdsicount').on('click', function() {
+		var rel = $(this).attr("rel");
+		if (rel == "false") {
+			$(".dis-before").removeClass("dhide");
+			$(".dis-after").addClass("dhide");
+			$(".dbdsicount").attr("rel", "true");
+		}
+		if (rel == "true") {
+			$(".dis-before").addClass("dhide");
+			$(".dis-after").removeClass("dhide");
+			$(".dbdsicount").attr("rel", "false");
+		}
+	});
+	//打印车票点击
+	var isPrint = 0;
+	$('.dbPrint').on('click', function() {
+		var rel = $(this).attr("rel");
+		if (rel == "false") {
+			$(".print-before").removeClass("dhide");
+			$(".print-after").addClass("dhide");
+			$(".dbPrint").attr("rel", "true");
+			isPrint = 0;
+		}
+		if (rel == "true") {
+			$(".print-before").addClass("dhide");
+			$(".print-after").removeClass("dhide");
+			$(".dbPrint").attr("rel", "false");
+			isPrint = 1;
+		}
+	});
+
+	//用户协议
+	isaggre = 1;
+	$('.dbrule').on('click', function() {
+		var rel = $(this).attr("rel");
+		if (rel == "true") {
+			$(".rule-before").removeClass("dhide");
+			$(".rule-after").addClass("dhide");
+			$(".dbrule").attr("rel", "false");
+			isaggre = 0;
+		}
+		if (rel == "false") {
+			$(".rule-before").addClass("dhide");
+			$(".rule-after").removeClass("dhide");
+			$(".dbrule").attr("rel", "true");
+			isaggre = 1;
+		}
+	});
+
+	//保险选择
+	var isInsurance = 1;
+	$(".safecheck").click(function() {
+		var radio_before = $(this).find(".radio_before");
+		var radio_after = $(this).find(".radio_after");
+		var rel = $(this).attr("rel");
+		if (rel == "check") {
+			$(radio_before).addClass("dhide");
+			$(radio_after).removeClass("dhide");
+			$(this).attr("rel", "checked");
+			isInsurance = 1;
+		}
+		if (rel == "checked") {
+			$(radio_before).removeClass("dhide");
+			$(radio_after).addClass("dhide");
+			$(this).attr("rel", "check");
+			isInsurance = 0;
+		}
+		totalmoney();
+	});
+
+	//打开购票须知
+	$(".gorule").click(function() {
+		mui.openWindow({
+			url: 'rule.html',
+			id: 'rule',
+		});
+	});
+
+	//获取乘客列表
+	var InsuranceName = '';
+	var seatlegth;
+
+	function getuserlist() {
+		var sendinfor = localStorage.getItem("sendinfor");
+		var getinfor = JSON.parse(sendinfor);
+		var uselist = (getinfor.uselist);
+		//console.log(getinfor);
+		seatlegth = uselist.length;
+		$(".usernum").text(seatlegth);
+		if (seatlegth > 1) {
+			$('.ismorebox').removeClass('dhide');
+			$('.moreusers').removeClass('dhide');
+		}
+		InsuranceName = getinfor.InsuranceName;
+		for (var i = 0; i < seatlegth; i++) {
+			$('.FFname').text(uselist[0].Fname);
+			$('.safeprice').text(uselist[0].InsurancePrice);
+			$(".diffent-box .diffent-main:first").addClass("curdiffent");
+			addruse(uselist[i]);
+		}
+	}
+
+	function addruse(datas) {
+		var list = $(".diffent-box");
+		var userName = datas.Fname;
+		var mobile = datas.Fphone;
+		var Fidcar = datas.Fidcar;
+		var InsurancePrice = datas.InsurancePrice;
+		var SeatMoney = datas.SeatMoney;
+		var SeatNum = datas.SeatNum;
+		var changeorderid = datas.changeorderid;
+		var item = $(".diffenttemp .diffent-item").clone();
+		item.find(".Fname").text(userName);
+		item.find(".diffent-main").attr('Fphone', mobile);
+		item.find(".diffent-main").attr('Fidcar', Fidcar);
+		item.find(".diffent-main").attr('Fname', userName);
+		item.find(".diffent-main").attr('SeatMoney', SeatMoney);
+		item.find(".diffent-main").attr('SeatNum', SeatNum);
+		item.find(".diffent-main").attr('changeorderid', changeorderid);
+		item.find(".diffent-main").attr('InsurancePrice', InsurancePrice);
+		item.attr('onclick', "checkuse(this)");
+		list.append(item);
+	}
+	//乘客点击 
+	function checkuse(dom) {
+		var checklat = $(dom).find(".diffent-main").attr("beginAddressLat");
+		var checklng = $(dom).find(".diffent-main").attr("endAddressLng");
+		var checkbegin = $(dom).find(".diffent-main").attr("startputtxt");
+		var checkend = $(dom).find(".diffent-main").attr("endputtxt");
+		$(".beginAddr").text(checkbegin);
+		$(".endAddr").text(checkend);
+		$(".diffent-box .diffent-main").removeClass("curdiffent");
+		$(dom).find(".diffent-main").addClass("curdiffent");
+		if (checklat == '' || checklat == null || checklng == '' || checklng == null) {
+			$(dom).find(".addr-warn").removeClass('dhide');
+		}
+	}
+
+	//选择出发地和目的地
+	var curaddr;
+
+	function chooseaddr(dom) {
+		curaddr = dom;
+	}
+
+	//页面切换
+	var ispointid = "startpage";
+	$(".dbpage_item").on("click", function() {
+		pageswitch(this);
+	})
+
+	var isendF = 0;
+
+	function pageswitch(dom) {
+		var id = $(dom).attr("id");
+		id = id + "page";
+		ispointid = id;
+		$("#" + id).removeClass("dhide").addClass("pt-page-moveFromTop");
+		$("#" + id).removeClass("pt-page-moveToTop");
+		location.hash = id;
+		$(".mapbox").removeClass("dhide");
+		$(".addrcontlist").addClass("dhide");
+	}
+	$("#end").on("click", function() {
+		isendF = 1;
+	});
+
+	//支付数据获取
+	var insurancemoney = 0;
+
+	function eachlist(doms) {
+		var datas = {};
+		var coupmoney = 0;
+		var uselist = [];
+		var markdatas = {};
+		var startlnglats = [];
+		var endlnglats = [];
+		var startarry = [];
+		var endarry = [];
+		var namearry = [];
+		var pointarry = [];
+		if ($(doms).length > 0) {
+			doms.each(function(i, item) {
+				var obj = {};
+				var Fname = $(item).attr("Fname");
+				var Fphone = $(item).attr("Fphone");
+				var SeatNum = $(item).attr("SeatNum");
+				var SeatMoney = $(item).attr("SeatMoney");
+				var InsurancePrice = $(item).attr("insuranceprice");
+				if (InsurancePrice == null || InsurancePrice == '') {
+					InsurancePrice = 0;
+				}
+				var Fidcar = $(item).attr("Fidcar");
+				var beginAddress = $(item).attr("beginAddress");
+				var startputtxt = $(item).attr("startputtxt");
+				var endputtxt = $(item).attr("endputtxt");
+				var endAddress = $(item).attr("endAddress");
+				var beginAddressLat = parseFloat($(item).attr("beginAddressLat"));
+				var beginAddressLng = parseFloat($(item).attr("beginAddressLng"));
+				var endAddressLat = parseFloat($(item).attr("endAddressLat"));
+				var endAddressLng = parseFloat($(item).attr("endAddressLng"));
+				var changeorderid = $(item).attr("changeorderid");
+				var startlnglat = [beginAddressLng, beginAddressLat];
+				var endlnglat = [endAddressLng, endAddressLat];
+				var isstart = $(item).attr("startpoint");
+				var isend = $(item).attr("endpoint");
+				coupmoney = coupmoney + parseFloat(SeatMoney);
+				insurancemoney = insurancemoney + parseFloat(InsurancePrice);
+				obj.Fname = Fname;
+				obj.Fphone = Fphone;
+				obj.SeatMoney = SeatMoney;
+				obj.InsurancePrice = InsurancePrice;
+				obj.SeatNum = SeatNum;
+				obj.Fidcar = Fidcar;
+				obj.beginAddress = beginAddress;
+				obj.endAddress = endAddress;
+				obj.beginAddressLat = beginAddressLat;
+				obj.beginAddressLng = beginAddressLng;
+				obj.endAddressLng = endAddressLng;
+				obj.endAddressLat = endAddressLat;
+				obj.changeAgoOrderId = changeorderid;
+				uselist.push(obj);
+				startlnglats.push(startlnglat);
+				endlnglats.push(endlnglat);
+				startarry.push(startputtxt);
+				endarry.push(endputtxt);
+				namearry.push(Fname);
+				pointarry.push(isstart);
+				pointarry.push(isend);
+			});
+		}
+
+		datas.uselist = uselist;
+		datas.coupmoney = coupmoney;
+		markdatas.startlnglats = startlnglats;
+		markdatas.endlnglats = endlnglats;
+		markdatas.startarry = startarry;
+		markdatas.endarry = endarry;
+		markdatas.namearry = namearry;
+		markdatas.pointarry = pointarry;
+		datas.markdatas = markdatas;
+		datas.InsuranceName = InsuranceName;
+		return datas;
+	}
+	var useinfor
+
+	function getuseinfor() {
+		var list = $(".diffent-box .diffent-main");
+		useinfor = eachlist(list);
+	}
+
+	//计算总钱数
+	function totalmoney() {
+		var count = $(".diffent-box .diffent-main").length;
+		getuseinfor();
+		var discountMoney = 0;
+		var scoreMoney = 0;
+		var seatmoney = useinfor.coupmoney;
+		if (surechange == 1) {
+			scoreMoney = 0;
+			discountMoney = 0;
+		}
+		if (isInsurance == 1) {
+			insurancemoney = insurancemoney;
+		}
+		if (isInsurance == 0) {
+			insurancemoney = 0;
+		}
+		discountMoney = parseFloat(discountMoney);
+		scoreMoney = parseFloat(scoreMoney);
+		seatmoney = parseFloat(seatmoney);
+		insurancemoney = parseFloat(insurancemoney);
+		totaldiscount = scoreMoney + discountMoney;
+		var totalmoney = (seatmoney + insurancemoney - totaldiscount).toFixed(2);
+		sendmoney = seatmoney; //定座费
+
+		$(".totalMoney").text(totalmoney); //最终总价
+		$(".totaldiscount").text(totaldiscount); //总计折扣
+		$(".carmoney").text(seatmoney);
+		$(".fullsafe").text(insurancemoney);
+		$(".safenum").text(count);
+	}
+
+	$(".gotopay").click(function() {
+		senddatas();
+	});
+
+	//提交支付数据
+	var carOrder, changedatas;
+
+	function senddatas() {
+		getuseinfor();
+		var discountMoney = $(".discountMoney").text();
+		var getpoint = useinfor.markdatas.pointarry;
+		var okpoint = $.inArray("false", getpoint);
+		//var scoreMoney = $(".scoreMoney").text();
+		var openId = localStorage.getItem("openid");
+		var ClassId = localStorage.getItem("ClassId");
+		var orderType = "1";
+		if (surechange == 1) {
+			scoreMoney = 0;
+		}
+		useinfor.discountMoney = discountMoney;
+		useinfor.scoreMoney = 0;
+		useinfor.ClassId = ClassId;
+		useinfor.isPrint = isPrint;
+		useinfor.openId = openId;
+		useinfor.orderType = orderType;
+		useinfor.IsInsurance = isInsurance;
+		//console.log(JSON.stringify(useinfor));
+		console.log(useinfor);
+		carOrder = useinfor;
+		//changedatas = useinfor;
+		var beginAddr = $.trim($(".beginAddr").text());
+		var endAddr = $.trim($(".endAddr").text());
+		var getstartpoint = $(".beginAddr").attr("startpoint");
+		var getendpoint = $(".endAddr").attr("endpoint");
+		if (endAddr == '详细目的地') {
+			mui.toast('请选择目的地');
+			return;
+		}
+		if (isaggre == 0) {
+			mui.toast('请确认阅读购票须知');
+			return;
+		}
+
+		if (okpoint != -1) {
+			$(".outdialog_box").removeClass("dhide");
+			$(".outtxt").text("已超出免费接送范围，请联系客服下单！");
+			return;
+		}
+
+		if (surechange == 1) {
+			changeorder();
+		}
+		if (surechange == 0) {
+			gopay();
+		}
+
+	}
+
+	//调取支付
+	var OrderGroupCode;
+
+	function gopay() {
+		var furl = "/AboutClassAPIManage/CarOrderAPI/CreateCarOrderForWechat";
+		$.ajax({
+			url: Serverurl + furl,
+			type: "POST",
+			async: false,
+			dataType: "json",
+			data: carOrder,
+			timeout: 5000,
+			success: function(data) {
+				var msg = data.message;
+				var type = data.type;
+				if (type == 3) {
+					mui.alert(msg, '系统提示');
+					return false;
+				}
+				var appId = data.resultdata.appId;
+				var timeStamp = data.resultdata.timeStamp;
+				var nonceStr = data.resultdata.nonceStr;
+				var package = data.resultdata.package;
+				var paySign = data.resultdata.paySign;
+				var signature = data.resultdata.signature;
+				var msg = data.message;
+				var type = data.type;
+				var code = data.resultdata.code;
+				OrderGroupCode = data.resultdata.OrderGroupCode;
+				localStorage.setItem("OrderGroupCode", OrderGroupCode);
+				if (code == 200) {
+					WeixinJSBridge.invoke('getBrandWCPayRequest', {
+						"appId": appId, //公众号名称，由商户传入
+						"timeStamp": timeStamp, //时间戳
+						"nonceStr": nonceStr, //随机串
+						"package": package, //扩展包
+						"signType": "MD5", //微信签名方式:1.MD5
+						"paySign": paySign //微信签名
+					}, function(res) {
+						if (res.err_msg == "get_brand_wcpay_request:ok") {
+							mui.alert('支付成功！', '系统提示', function() {
+								//orderyundou();
+								//usecoupon();
+								//useyundou();
+								mui.openWindow({
+									url: 'ordersdetail.html?v=1.0',
+									id: 'ordersdetail',
+								});
+							});
+						} else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+							//usecoupon();
+							//useyundou();
+							mui.openWindow({
+								url: 'ordersdetail.html?v=1.0',
+								id: 'ordersdetail',
+							});
+						} else {
+							alert(JSON.stringify(res));
+						}
+						return;
+					});
+				}
+			}
+
+		});
+	}
+
+	//改签支付
+
+	function changeorder() {
+		var rulemsg = "";
+		var furl = "/AboutClassAPIManage/CarOrderAPI/ChangeCarOrderForWechat";
+		var furlrule = "/AboutClassAPIManage/CarOrderAPI/ChangeRuleByOrderIdListForWechat";
+		//console.log(carOrder);
+		$.ajax({
+			url: Serverurl + furlrule,
+			type: "post",
+			async: false,
+			dataType: "json",
+			data: carOrder,
+			success: function(result) {
+				rulemsg = result.resultdata;
+				var msg = result.message;
+				var type = result.type;
+				if (type == 3) {
+					mui.alert(msg, '系统提示');
+					return;
+				}
+			}
+		});
+
+		var btnArray = ['否', '是'];
+		mui.confirm(rulemsg, '系统提示', btnArray, function(e) {
+			if (e.index == 1) {
+				$(".mui-popup-backdrop").addClass("mui-popup-out");
+				$(".mui-popup").addClass("mui-popup-out");
+				$.ajax({
+					url: Serverurl + furl,
+					type: "post",
+					async: false,
+					dataType: "json",
+					data: carOrder,
+					success: function(result) {
+						var changePayType = result.resultdata.changePayType;
+						var msg = result.message;
+						var type = result.type;
+						if (type == 3) {
+							mui.alert(msg, '系统提示');
+							return false;
+						}
+						var appId = result.resultdata.appId;
+						var timeStamp = result.resultdata.timeStamp;
+						var nonceStr = result.resultdata.nonceStr;
+						var package = result.resultdata.package;
+						var paySign = result.resultdata.paySign;
+						var signature = result.resultdata.signature;
+						var msg = result.message;
+						var type = result.type;
+						var code = result.resultdata.code;
+						OrderGroupCode = result.resultdata.OrderGroupCode;
+						localStorage.setItem("OrderGroupCode", OrderGroupCode);
+						if (changePayType == 1 && type == 1) {
+
+							if (code == 200) {
+
+								WeixinJSBridge.invoke('getBrandWCPayRequest', {
+									"appId": appId, //公众号名称，由商户传入
+									"timeStamp": timeStamp, //时间戳
+									"nonceStr": nonceStr, //随机串
+									"package": package, //扩展包
+									"signType": "MD5", //微信签名方式:1.MD5
+									"paySign": paySign //微信签名
+								}, function(res) {
+									if (res.err_msg == "get_brand_wcpay_request:ok") {
+										mui.alert('支付成功！', '系统提示', function() {
+											//orderyundou();
+											mui.openWindow({
+												url: 'ordersdetail.html',
+												id: 'ordersdetail',
+											});
+										});
+									} else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+										mui.openWindow({
+											url: 'ordersdetail.html',
+											id: 'ordersdetail',
+										});
+									} else {
+										alert(JSON.stringify(res));
+									}
+									return;
+								});
+							}
+						}
+						if (type == 3 || changePayType == "" || changePayType == null) {
+							mui.alert('改签失败，请联系客服！', '系统提示');
+						}
+						if (changePayType != 1 && type == 1) {
+							mui.alert('改签成功！', '系统提示', function() {
+								mui.openWindow({
+									url: 'ordersdetail.html',
+									id: 'ordersdetail',
+								});
+							});
+
+						}
+					}
+
+				});
+			} else {
+				return;
+			}
+		});
+	}
+
+	//清空搜索内容
+	$(".search_putclear").click(function() {
+		$(this).siblings().find(".search_addrput").val("");
+	});
+	//出发地地址点击
+	$(".cfdlist li").click(function() {
+		dbgoback();
+	});
+	//目的地地址点击
+	$(".mddlist").click(function() {
+		dbgoback();
+	});
+
+	//查看支付详情
+	$(".look_pay").click(function() {
+		var rel = $(this).attr("rel");
+		var dbfsign = $(this).find(".dbfsign");
+		if (rel == "up") {
+			$(".pay_detail").removeClass("dhide");
+			$(dbfsign).removeClass("fa-caret-down").addClass("fa-caret-up");
+			$(".look_pay").attr("rel", "down");
+		}
+		if (rel == "down") {
+			$(".pay_detail").addClass("dhide");
+			$(dbfsign).removeClass("fa-caret-up").addClass("fa-caret-down");
+			$(".look_pay").attr("rel", "up")
+		}
+	});
+	//关闭弹层
+	$(".pay_detail").click(function() {
+		$(this).addClass("dhide");
+		$(".look_pay").attr("rel", "up");
+		$(".look_pay").find(".dbfsign").removeClass("fa-caret-up").addClass("fa-caret-down");
+	});
+
+	//打开订单详情页
+	var changeleg = localStorage.getItem("changeleg");
+	var surechange = localStorage.getItem("surechange");
+
+	//设置地图默认经纬度
+	function setpoint(station) {
+		if (station == "昆明") {
+			stationpoint = [102.707180, 25.046020];
+		}
+		if (station == "昭通") {
+			stationpoint = [103.717217, 27.336995];
+		}
+		if (station == "镇雄") {
+			stationpoint = [104.891152, 27.40376];
+		}
+		if (station == "毕节机场") {
+			stationpoint = [105.483005, 27.261549];
+		}
+		if (station == "绥江") {
+			stationpoint = [103.968978, 28.5921];
+		}
+		if (station == "大关") {
+			stationpoint = [103.891146, 27.747978];
+		}
+		if (station == "彝良") {
+			stationpoint = [104.048289, 27.625419];
+		}
+		if (station == "呈贡大学城") {
+			stationpoint = [102.855412, 24.838364];
+		}
+		if (station == "杨林职教园区") {
+			stationpoint = [103.006117, 25.241047];
+		}
+		if (station == "水富") {
+			stationpoint = [104.416031, 28.62988];
+		}
+		if (station == "巧家") {
+			stationpoint = [102.930164, 26.908461];
+		}
+		if (station == "宜宾西门客运站") {
+			stationpoint = [104.599338, 28.748641];
+		}
+		if (station == "木杆") {
+			stationpoint = [103.972601, 28.144185]
+		}
+		if (station == "团结") {
+			stationpoint = [102.535736, 25.074739]
+		}
+		if (station == "包谷脑") {
+			stationpoint = [103.328541, 26.973525]
+		}
+		if (station == "盐源") {
+			stationpoint = [104.627731,27.630333]
+		}
+		if (station == "永善") {
+			stationpoint = [103.638067,28.229113]
+		}
+
+		return stationpoint;
+	}
+
+	//设置电话号码
+
+	function stetel(istation, endtation) {
+		var curtel = '';
+		if (istation == "昆明") {
+			curtel = "18808706601";
+		}
+		if (istation == "镇雄" || istation == "毕节机场") {
+			curtel = "0870-3125456";
+		}
+		if (istation == "绥江" || istation == "宜宾西门客运站") {
+			curtel = "19912771280";
+		}
+		if (istation == "水富") {
+			curtel = "15987020018";
+		}
+		if (istation == "巧家") {
+			curtel = "19984097116";
+		}
+		if (istation == "呈贡大学城" || istation == "杨林职教园区") {
+			curtel = "18087031781";
+		}
+		if (istation == "团结" || istation == "团结") {
+			curtel = "08702356666";
+		}
+		if (istation == "昭通" && endtation == "大关") {
+			curtel = "08702356666";
+		}
+		if (istation == "昭通" && endtation == "昆明") {
+			curtel = "08702133308";
+		}
+		if (istation == "昆明" && endtation == "镇雄") {
+			curtel = "08703125456";
+		}
+		if (istation == "昭通" && endtation == "镇雄") {
+			curtel = "08703125456";
+		}
+		
+		if (istation == "昭通" && endtation == "水富") {
+			curtel = "08702356666";
+		}
+		if (istation == "昭通" && endtation == "巧家") {
+			curtel = "08702356666";
+		}
+		if (istation == "盐源" && endtation == "盐源") {
+			curtel = "08702356666";
+		}
+		if (istation == "永善" && endtation == "永善") {
+			curtel = "13638808211";
+		}
+
+		return curtel;
+	}
+	var servicetel = stetel(StartStationName, EndStationName);
+	
+	//查询出发地推荐地址
+	function getfavor(){
+		$('.startfavor-list').empty();
+		var furl = "/AboutClassAPIManage/CarOrderAPI/GetRecommendAddress";
+		var postdata = {
+			openIdorPlanId: openId,
+			cityName: StartStationName
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				var datas = result.resultdata;
+				var length = datas.length;
+				if(length > 3){
+					length = 3;
+				}
+				if (length > 0) {
+					for (var i = 0; i < length; i++) {
+						addfavor(datas[i]);
+					}
+				}
+			}
+		});
+	}
+	function addfavor(data) {
+		var list = $('.startfavor-list');
+		var Address = data.Address;
+		if(Address != null && Address != ''){
+			var item = $(".favortemp .favor-item").clone();
+			item.text(Address);
+			item.attr("beginAddressLng", data.Lng);
+			item.attr("beginAddressLat", data.Lat);
+			item.attr("onclick", "dbstartfavor(this)");
+			list.append(item);
+		}
+	}
+	function dbstartfavor(dom){
+		dbgoback();
+		var puttxt = $(dom).text();
+		var changlng =  $(dom).attr("beginAddressLng");
+		var changlat =  $(dom).attr("beginAddressLat");
+		$(".beginAddr").text(puttxt);
+		$(".qmap_txt").text(puttxt);
+		$(".qmap_txt").attr("beginAddressLng", changlng);
+		$(".qmap_txt").attr("beginAddressLat", changlat);
+		$(".beginAddr").attr("beginAddressLng", changlng);
+		$(".beginAddr").attr("beginAddressLat", changlat);
+		if (issame == 0) {
+			$(".curdiffent").attr("beginAddressLat", changlat);
+			$(".curdiffent").attr("beginAddressLng", changlng);
+			$(".curdiffent").attr("beginAddress", puttxt);
+			$(".curdiffent").attr("startputtxt", puttxt);
+		}
+		if (issame == 1) {
+			$(".diffent-box .diffent-main").attr("beginAddressLat", changlat);
+			$(".diffent-box .diffent-main").attr("beginAddressLng", changlng);
+			$(".diffent-box .diffent-main").attr("beginAddress", puttxt);
+			$(".diffent-box .diffent-main").attr("startputtxt", puttxt);
+		}
+		var beginAddressLng = $(".qmap_txt").attr("beginAddressLng");
+		var beginAddressLat = $(".qmap_txt").attr("beginAddressLat");
+		startpoints = [beginAddressLng, beginAddressLat];
+		exparry = [];
+		markmap.setCenter(startpoints);
+		getspots(StartStationName, startpoints);
+		lastispoint("startpage");
+	}
+	//查询目的地推荐地址
+	function getendfavor(){
+		$('.endfavor-list').empty();
+		var furl = "/AboutClassAPIManage/CarOrderAPI/GetRecommendAddress";
+		var postdata = {
+			openIdorPlanId: openId,
+			cityName: EndStationName
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				var datas = result.resultdata;
+				var length = datas.length;
+				if(length > 3){
+					length = 3;
+				}
+				if (length > 0) {
+					for (var i = 0; i < length; i++) {
+						addendfavor(datas[i]);
+					}
+				}
+			}
+		});
+	}
+	function addendfavor(data) {
+		var list = $('.endfavor-list');
+		var Address = data.Address;
+		if(Address != null && Address != ''){
+			var item = $(".favortemp .favor-item").clone();
+			item.text(Address);
+			item.attr("endAddressLng", data.Lng);
+			item.attr("endAddressLat", data.Lat);
+			item.attr("onclick", "dbendfavor(this)");
+			list.append(item);
+		}
+	}
+	function dbendfavor(dom){
+		dbgoback();
+		var puttxt = $(dom).text();
+		var changlng =  $(dom).attr("endAddressLng");
+		var changlat =  $(dom).attr("endAddressLat");
+		$(".endAddr").text(puttxt);
+		$(".endmap_txt").text(puttxt);
+		$(".endmap_txt").attr("endAddressLng", changlng);
+		$(".endmap_txt").attr("endAddressLat", changlat);
+		$(".endAddr").attr("endAddressLng", changlng);
+		$(".endAddr").attr("endAddressLat", changlat);
+		if (issame == 0) {
+			$(".curdiffent").attr("endAddressLat", changlat);
+			$(".curdiffent").attr("endAddressLng", changlng);
+			$(".curdiffent").attr("endAddress", puttxt);
+			$(".curdiffent").attr("endputtxt", puttxt);
+		}
+		if (issame == 1) {
+			$(".diffent-box .diffent-main").attr("endAddressLat", changlat);
+			$(".diffent-box .diffent-main").attr("endAddressLng", changlng);
+			$(".diffent-box .diffent-main").attr("endAddress", puttxt);
+			$(".diffent-box .diffent-main").attr("endputtxt", puttxt);
+		}
+		endpoints = [changlng, changlat];
+		
+		exparry = [];
+		getspots(EndStationName, endpoints);
+		lastispoint("endpage");
+		markmap.remove(markers);
+		setmarks("endlnglats");
+		setmarks("startlnglats");
+	}
+	
+	
+	//出发地地图相关
+	//获取当前位置
+	var lat, lng, locaddr, startmap, endmap, markmap;
+	var polygon, path;
+	var markers = [];
+	var options = {
+		timeout: 6000
+	};
+	var geolocation = new qq.maps.Geolocation("DZYBZ-73WWI-FG6GZ-5JRFR-PNVIE-4OFUL", "myapp");
+	var mappoint = [0, 0];
+	var endmappoint = [0, 0];
+
+	function getLocation() {
+		geolocation.getLocation(showPosition, showErr, options)
+	}
+
+	function showPosition(position) {
+		var dd = JSON.stringify(position, null, 4);
+		curcity = position.city;
+		curcity = curcity.replace("市", "");
+		lat = position.lat;
+		lng = position.lng;
+		locaddr = position.addr;
+		mappoint = [lng, lat];
+		//console.log(mappoint);
+		makemap(mappoint);
+	}
+
+	function showErr() {
+		makemap();
+	}
+
+	function makemap(data) {
+		mappoint = data;
+		var defaultp = setpoint(StartStationName);
+
+		if (data == null || data == "" || curcity != StartStationName) {
+			mappoint = defaultp;
+		}
+		startpoints = mappoint;
+		startmap = new AMap.Map('startmap', {
+			center: mappoint,
+			zoom: 15,
+			scrollWheel: false
+		});
+
+		AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
+
+			var positionPicker = new PositionPicker({
+				mode: 'dragMap',
+				map: startmap
+			});
+			getspots(StartStationName, startpoints);
+			drawmask(startmap);
+			lastispoint("startpage");
+			positionPicker.on('success', function(positionResult) {
+				//console.log(positionResult);
+				var changaddr = positionResult.address;
+				var changlat = positionResult.position.lat;
+				var changlng = positionResult.position.lng;
+				var puttxt = positionResult.regeocode.pois[0].name;
+				$(".beginAddr").text(puttxt);
+				$(".qmap_txt").text(puttxt);
+				$(".qmap_txt").attr("beginAddressLng", changlng);
+				$(".qmap_txt").attr("beginAddressLat", changlat);
+				$(".beginAddr").attr("beginAddressLng", changlng);
+				$(".beginAddr").attr("beginAddressLat", changlat);
+				if (issame == 0) {
+					$(".curdiffent").attr("beginAddressLat", changlat);
+					$(".curdiffent").attr("beginAddressLng", changlng);
+					$(".curdiffent").attr("beginAddress", changaddr);
+					$(".curdiffent").attr("startputtxt", puttxt);
+				}
+				if (issame == 1) {
+					$(".diffent-box .diffent-main").attr("beginAddressLat", changlat);
+					$(".diffent-box .diffent-main").attr("beginAddressLng", changlng);
+					$(".diffent-box .diffent-main").attr("beginAddress", changaddr);
+					$(".diffent-box .diffent-main").attr("startputtxt", puttxt);
+				}
+
+				startpoints = [changlng, changlat];
+				//console.log(curpoints);
+				exparry = [];
+				getspots(StartStationName, startpoints);
+
+				lastispoint("startpage");
+				markmap.remove(markers);
+				setmarks("endlnglats");
+				setmarks("startlnglats");
+			});
+			positionPicker.on('fail', function(positionResult) {
+
+			});
+			positionPicker.start();
+			startmap.panBy(0, 1);
+			startmap.addControl(new AMap.ToolBar({
+				liteStyle: true
+			}))
+
+		});
+	}
+	$('.startcenter').on('click', function() {
+		startmap.setCenter(mappoint);
+	});
+	$('.startrang').on('click', function() {
+		var defaultp = setpoint(StartStationName);
+		startmap.setCenter(defaultp);
+	});
+
+	//mark地图
+	var startmark = setpoint(StartStationName);
+	var endmark = setpoint(EndStationName);
+
+	markmap = new AMap.Map('markmap', {
+		resizeEnable: true, //是否监控地图容器尺寸变化
+		zoom: 6, //初始化地图层级
+		center: startmark //初始化地图中心点
+	});
+
+	function setmarks(lngtype) {
+		getuseinfor();
+		var lnglats = [];
+		var mapicon = '';
+		var names = useinfor.markdatas.namearry;
+		var startarry = useinfor.markdatas.startarry;
+		var endarry = useinfor.markdatas.endarry;
+		var addrarry = [];
+		var FFname = $('.FFname').text();
+		var usernum = $('.usernum').text();
+		if (lngtype == "startlnglats") {
+			lnglats = useinfor.markdatas.startlnglats;
+			mapicon = 'common/images/start-mark.png';
+			addrarry = startarry;
+		}
+		if (lngtype == "endlnglats") {
+			lnglats = useinfor.markdatas.endlnglats;
+			mapicon = 'common/images/end-mark.png';
+			addrarry = endarry;
+		}
+
+		var infoWindow = new AMap.InfoWindow({
+			offset: new AMap.Pixel(0, -30)
+		});
+		//console.log(addrarry);
+		for (var i = 0, marker; i < lnglats.length; i++) {
+			var marker = new AMap.Marker({
+				position: lnglats[i],
+				icon: mapicon,
+				map: markmap
+			});
+			if (issame == 1 && names.length > 1) {
+				marker.content = FFname + "等" + usernum + "乘客<br />" + addrarry[i];
+			} else {
+				marker.content = names[i] + "<br />" + addrarry[i];
+			}
+			marker.on('click', markerClick);
+			marker.emit('click', {
+				target: marker
+			});
+			markers.push(marker);
+		}
+		markmap.setFitView();
+
+		function markerClick(e) {
+			infoWindow.setContent(e.target.content);
+			infoWindow.open(markmap, e.target.getPosition());
+			markmap.setZoom(12);
+			markmap.setCenter(e.target.getPosition());
+		}
+
+	}
+	$('.getcenter').on('click', function() {
+		markmap.setFitView();
+	});
+
+	//出发地地图确认按钮
+	$(".qmap_sure").click(function() {
+		dbgoback();
+		var beginAddressLng = $(".qmap_txt").attr("beginAddressLng");
+		var beginAddressLat = $(".qmap_txt").attr("beginAddressLat");
+		startpoints = [beginAddressLng, beginAddressLat];
+		exparry = [];
+		markmap.setCenter(startpoints);
+		getspots(StartStationName, startpoints);
+		lastispoint("startpage");
+	});
+
+	$("#searchcfd").click(function() {
+		$('.startfavor-list').removeClass('dhide');
+		$("#searchcfd").val("");
+		$("#cfdlist").removeClass("dhide");
+		$(".mapbox").addClass("dhide");
+		$("#nearaddrlist").removeClass("dhide");
+		AMap.plugin(['AMap.Autocomplete'], function() {
+			var autoOptions = {
+				input: "searchcfd",
+				city: StartStationName,
+				output: "cfdlist"
+			};
+			var autocomplete = new AMap.Autocomplete(autoOptions);
+			autocomplete.search(StartStationName);
+			AMap.event.addListener(autocomplete, "select", function(data) {
+				var beginAddressLng = data.poi.location.lng;
+				var beginAddressLat = data.poi.location.lat;
+				var cfd = data.poi.name;
+				var beninAddr01 = data.poi.address;
+				var changpoint = [beginAddressLng, beginAddressLat];
+				var beninAddr02 = data.poi.district;
+				var beginAddress = "【" + beninAddr01 + "】" + beninAddr02;
+				if (cfd == "") {
+					cfd = city;
+				}
+				startmap.setCenter(changpoint);
+				dbgoback();
+				$("#nearaddrlist").addClass("dhide");
+				$(".mapbox").removeClass("dhide");
+				$(".start_conttop").addClass("dhide");
+				$(".qmap_txt").text(beninAddr02);
+				if (issame == 0) {
+					$(".curdiffent").attr("beginAddressLat", changlat);
+					$(".curdiffent").attr("beginAddressLng", changlng);
+					$(".curdiffent").attr("beginAddress", changaddr);
+					$(".curdiffent").attr("startputtxt", beninAddr02);
+				}
+				if (issame == 1) {
+					$(".diffent-box .diffent-main").attr("beginAddressLat", changlat);
+					$(".diffent-box .diffent-main").attr("beginAddressLng", changlng);
+					$(".diffent-box .diffent-main").attr("beginAddress", changaddr);
+					$(".curdiffent").attr("startputtxt", beninAddr02);
+				}
+				startpoints = [beginAddressLng, beginAddressLat];
+				setmarks("endlnglats");
+				setmarks("startlnglats");
+				exparry = [];
+				markmap.remove(markers);
+				getspots(StartStationName, startpoints);
+				lastispoint("startpage");
+			});
+		});
+	});
+	document.getElementById('searchcfd').addEventListener('input', function(e) {
+		$('.startfavor-list').addClass('dhide');
+	});
+
+	//目的地地图相关
+	function makemdmap() {
+		endmappoint = setpoint(EndStationName);
+		endpoints = endmappoint;
+		endmap = new AMap.Map('endmap', {
+			center: endmappoint,
+			zoom: 15,
+			scrollWheel: false
+		});
+
+		AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
+
+			var positionPicker = new PositionPicker({
+				mode: 'dragMap',
+				map: endmap
+			});
+			getspots(EndStationName, endpoints);
+			drawmask(endmap);
+			lastispoint("endpage");
+			positionPicker.on('success', function(positionResult) {
+				var changaddr = positionResult.address;
+				var changlat = positionResult.position.lat;
+				var changlng = positionResult.position.lng;
+				var puttxt = positionResult.regeocode.pois[0].name;
+				$(".endAddr").text(puttxt);
+				$(".endmap_txt").text(puttxt);
+				$(".endmap_txt").attr("endAddressLng", changlng);
+				$(".endmap_txt").attr("endAddressLat", changlat);
+				$(".endAddr").attr("endAddressLng", changlng);
+				$(".endAddr").attr("endAddressLat", changlat);
+				if (issame == 0) {
+					$(".curdiffent").attr("endAddressLat", changlat);
+					$(".curdiffent").attr("endAddressLng", changlng);
+					$(".curdiffent").attr("endAddress", changaddr);
+					$(".curdiffent").attr("endputtxt", puttxt);
+				}
+				if (issame == 1) {
+					$(".diffent-box .diffent-main").attr("endAddressLat", changlat);
+					$(".diffent-box .diffent-main").attr("endAddressLng", changlng);
+					$(".diffent-box .diffent-main").attr("endAddress", changaddr);
+					$(".diffent-box .diffent-main").attr("endputtxt", puttxt);
+				}
+				if (isendF == 0) {
+					$(".endAddr").text('详细目的地');
+				}
+
+				endpoints = [changlng, changlat];
+				//console.log(curpoints);
+				exparry = [];
+				getspots(EndStationName, endpoints);
+				lastispoint("endpage");
+				markmap.remove(markers);
+				setmarks("endlnglats");
+				setmarks("startlnglats");
+			});
+			positionPicker.on('fail', function(positionResult) {
+
+			});
+			positionPicker.start();
+			endmap.panBy(0, 1);
+			endmap.addControl(new AMap.ToolBar({
+				liteStyle: true
+			}))
+
+		});
+	}
+
+	$('.endcenter').on('click', function() {
+		endmap.setCenter(endmappoint);
+	});
+	$('.endrang').on('click', function() {
+		endmap.setCenter(endmappoint);
+	});
+
+	//目的地地图确认按钮
+	$(".endmap_sure").click(function() {
+		var changaddr = $(".endmap_txt").text();
+		$(".endAddr").text(changaddr);
+		var endAddressLng = $(".endmap_txt").attr("endAddressLng");
+		var endAddressLat = $(".endmap_txt").attr("endAddressLat");
+		dbgoback();
+		endpoints = [endAddressLng, endAddressLat];
+		exparry = [];
+		markmap.setCenter(endpoints);
+		getspots(EndStationName, endpoints);
+		lastispoint("endpage");
+	});
+	$("#searchmdd").click(function() {
+		$('.endfavor-list').removeClass('dhide');
+		$("#searchmdd").val("");
+		$("#dbmdnearlist").removeClass("dhide");
+		$(".mapbox").addClass("dhide");
+		//$("#nearaddrlist").removeClass("dhide");
+		AMap.plugin(['AMap.Autocomplete'], function() {
+			var autoOptions = {
+				input: "searchmdd",
+				city: EndStationName,
+				output: "mddlist"
+			};
+			var autocomplete = new AMap.Autocomplete(autoOptions);
+			autocomplete.search(EndStationName);
+			
+			//$(".start_conttop").removeClass("dhide");
+			AMap.event.addListener(autocomplete, "select", function(data) {
+				var endAddressLng = data.poi.location.lng;
+				var endAddressLat = data.poi.location.lat;
+				var cfd = data.poi.name;
+				var beninAddr01 = data.poi.address;
+				var changpoint = [endAddressLng, endAddressLat];
+				var beninAddr02 = data.poi.district;
+				var endAddress = "【" + beninAddr01 + "】" + beninAddr02;
+				endmap.setCenter(changpoint);
+				dbgoback();
+				$("#dbmdnearlist").addClass("dhide");
+				$(".mapbox").removeClass("dhide");
+				$(".start_conttop").addClass("dhide");
+				$(".endmap_txt").text(beninAddr02);
+				if (issame == 0) {
+					$(".curdiffent").attr("endAddressLat", endAddressLat);
+					$(".curdiffent").attr("endAddressLng", endAddressLng);
+					$(".curdiffent").attr("endAddress", endAddress);
+					$(".curdiffent").attr("endputtxt", beninAddr02);
+				}
+				if (issame == 1) {
+					$(".diffent-box .diffent-main").attr("endAddressLat", endAddressLat);
+					$(".diffent-box .diffent-main").attr("endAddressLng", endAddressLng);
+					$(".diffent-box .diffent-main").attr("endAddress", endAddress);
+					$(".diffent-box .diffent-main").attr("endputtxt", beninAddr02);
+				}
+				endpoints = [endAddressLng, endAddressLat];
+
+				exparry = [];
+				getspots(EndStationName, endpoints);
+				lastispoint("endpage");
+				markmap.remove(markers);
+				setmarks("endlnglats");
+				setmarks("startlnglats");
+			});
+		});
+	});
+	document.getElementById('searchmdd').addEventListener('input', function(e) {
+		$('.endfavor-list').addClass('dhide');
+	});
+
+	//获取多边形点集
+	function getspots(data, curpoints) {
+		var furl = "/AboutClassAPIManage/CarOrderAPI/GetEnclosure?AdminArea=" + data;
+
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var datas = result.resultdata;
+				var length = datas.length;
+				if (length > 0) {
+					for (var i = 0; i < length; i++) {
+
+						addspots(datas[i], curpoints);
+					}
+				} else {
+					return;
+				}
+			}
+		});
+	}
+
+	function addspots(data, curpoints) {
+		var polygon = JSON.parse(data.Points);
+		var round = JSON.parse(data.Center);
+
+		var curtype = data.EType;
+		if (curtype == "多") {
+			path = polygon;
+		}
+		if (curtype == "圆") {
+			path = round;
+		}
+		if (path.length <= 0 || path == null) {
+			return;
+		}
+		var ispoint = AMap.GeometryUtil.isPointInRing(curpoints, path);
+		exparry.push(ispoint);
+
+	}
+
+	function drawmask(mapname) {
+		var polygon = new AMap.Polygon({
+			map: mapname,
+			fillOpacity: 0.2,
+			fillColor: "#3c86f4",
+			path: path
+		});
+	}
+	//判断是否在多边形内
+	var istation = StartStationName;
+
+	function lastispoint(pagename) {
+		var lastp = true;
+		var startpoint, endpoint;
+		var inarry = $.inArray(true, exparry);
+		// console.log(inarry);
+		if (inarry === 0) {
+			lastp = true;
+			$(".map_contbox").addClass("dhide");
+		}
+		if (inarry === -1) {
+			lastp = false;
+			$(".map_contbox").removeClass("dhide");
+		}
+		// console.log(lastp);
+
+		$(".outtel").attr("href", "tel:" + servicetel);
+		$(".outtel").text(servicetel);
+
+		if (pagename == "startpage" && inarry == -1) {
+			$(".beginAddr").text("超出接送范围");
+			$(".beginAddr").attr("beginAddress", "");
+			$(".beginAddr").attr("beginAddressLat", "");
+			$(".beginAddr").attr("beginAddressLng", "");
+			if (issame == 0) {
+				$('.curdiffent').attr("beginAddress", "");
+				$('.curdiffent').attr("startputtxt", "超出接送范围");
+			}
+			if (issame == 1) {
+				$(".diffent-box .diffent-main").attr("beginAddress", "");
+				$(".diffent-box .diffent-main").attr("startputtxt", "超出接送范围");
+
+			}
+
+			$(".tipstxt").text("出发地已超出接送范围，请联系客服！");
+			mui.toast("出发地已超出接送范围，请联系客服！");
+		}
+		if (pagename == "endpage" && inarry == -1) {
+			$(".endAddr").text("超出接送范围");
+			$(".endAddr").attr("endAddress", "");
+			$(".endAddr").attr("endAddressLat", "");
+			$(".endAddr").attr("endAddressLng", "");
+			if (issame == 0) {
+				$('.curdiffent').attr("endAddress", "");
+				$('.curdiffent').attr("endputtxt", "超出接送范围");
+			}
+			if (issame == 1) {
+				$(".diffent-box .diffent-main").attr("endAddress", "");
+				$(".diffent-box .diffent-main").attr("endputtxt", "超出接送范围");
+
+			}
+			$(".tipstxt").text("目的地已超出接送范围，请联系客服！");
+			mui.toast("目的地已超出接送范围，请联系客服！");
+		}
+		if (pagename == "startpage") {
+			//alert(lastp);
+			$(".beginAddr").attr("startpoint", lastp);
+			$('.curdiffent').attr("startpoint", lastp);
+			if (issame == 0) {
+				$('.curdiffent').attr("startpoint", lastp);
+			}
+			if (issame == 1) {
+				$(".diffent-box .diffent-main").attr("startpoint", lastp);
+
+			}
+		}
+		if (pagename == "endpage") {
+			$(".endAddr").attr("endpoint", lastp);
+			if (issame == 0) {
+				$('.curdiffent').attr("endpoint", lastp);
+			}
+			if (issame == 1) {
+				$(".diffent-box .diffent-main").attr("endpoint", lastp);
+
+			}
+		}
+	}
+
+	$(".false_btn").on("click", function() {
+		$(".outdialog_box").addClass("dhide");
+		return;
+	})
+	$(".true_btn").on("click", function() {
+		$(".outdialog_box").addClass("dhide");
+		$(".true_btn").attr("href", "tel:" + servicetel);
+	});
+	
+
+</script>

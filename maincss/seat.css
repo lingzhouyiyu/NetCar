@@ -1,0 +1,56 @@
+.mainbg{ background: #fff;}
+.index_topbar{ background: url(../common/images/topbg01.png) no-repeat; background-size: 100% 100%; padding: 1em 0 1em 0;}
+.suretline{ height: 1px; background: #fff; width: 100%; margin: 2px 0;}
+.sure_center{}
+.seat_sign{ background: rgba(255,255,255,0.73); margin-top: 1em; padding: 0.5em 0; border-top: 1px solid #f79d72; border-bottom: 1px solid #f79d72; box-shadow: 0 3px 2px #f79d72; }
+.seattop_box01{ width: 1em; height: 1em; border: 1px solid #FF6600; border-radius: 4px; margin-right: 5px;}
+.seattop_box02{ width: 1em; height: 1em; border: 1px solid #FF6600; background: #FF6600; border-radius: 4px; margin-right: 5px;}
+.seattop_box03{ width: 1em; height: 1em; border: 1px solid #00CC66; background: #00CC66; border-radius: 4px; margin-right: 5px;}
+
+.seat_box{ padding-top: 1em;}
+.seats{ width: 4.5em; height: 4.5em;}
+.seats_btn{ padding: 2em;}
+.seat_sure{ background:url(../common/images/person_bg02.jpg) repeat-y; background-size: 100% 100%; height: 2.8em; border-radius: 0.4em; color: #fff;}
+.sjbox{ background: url(../common/images/seatsj.png) no-repeat; background-size: contain;}
+.kxbox{ background: url(../common/images/seatkx.png) no-repeat; background-size: contain;}
+.yxbox{ background: url(../common/images/seatyx.png) no-repeat; background-size: contain;}
+.ysbox{ background: url(../common/images/seatys.png) no-repeat; background-size: contain;}
+.ysM{background: url(../common/images/seatyM.png) no-repeat; background-size: contain;}
+.ysW{background: url(../common/images/seatyW.png) no-repeat; background-size: contain;}
+.visi{ visibility:hidden;}
+
+
+
+/*选择联系人*/
+.fix_box{position:fixed;top:0;left:0;z-index:99;overflow:auto;width:100%;height:100%;background:rgba(0,0,0,.5);}
+.bg_white{height:3em;background:#fff;}
+.dhide{display:none !important;}
+.pt-page-moveFromTop{-webkit-animation:moveFromTop .6s ease both;-moz-animation:moveFromTop .6s ease both;animation:moveFromTop .6s ease both;}
+.pt-page-moveToTop{-webkit-animation:moveToTop .6s ease both;-moz-animation:moveToTop .6s ease both;animation:moveToTop .6s ease both;}
+
+.switch_page{position:fixed;top:0;left:0;z-index:99;overflow:auto;width:100%;height:100%;background:rgba(0,0,0,0.6);}
+.content_main{ background: #F5F5F5; position: absolute; left: 0; bottom: 0; height: 50%; width: 100%; overflow: auto; box-shadow: 0 -2px 3px #cdcdcd;}
+.content_top{ height: 2.5em; background: #fff; border-bottom: 1px solid #dcdcdc; position: fixed;top:50%; left: 0;z-index: 99; width: 100%;}
+.add_img{ width: 1em;}
+.conact_list{ overflow: auto; height: auto; padding-bottom: 2.7em; padding-top: 2.6em;}
+.conact_item{ border-bottom: 1px solid #dcdcdc; padding: 0.4em 0.6em; background: #fff;}
+.check_img{ width: 1.2em; }
+.edit_img{ width: 1.2em;}
+.addsure_box{ position: fixed; left: 0; bottom: 0; width: 100%; }
+.adsure_btn{ background: #fff; height: 2.6em; box-shadow: 0 -2px 3px #cdcdcd; z-index: 99;}
+
+
+.pt-page-moveToBottom{-webkit-animation:moveToBottom .6s ease both;-moz-animation:moveToBottom .6s ease both;animation:moveToBottom .6s ease both}
+.pt-page-moveFromBottom{-webkit-animation:moveFromBottom .6s ease both;-moz-animation:moveFromBottom .6s ease both;animation:moveFromBottom .6s ease both}
+@-webkit-keyframes moveToBottom{to{-webkit-transform:translateY(100%)}
+}
+@-moz-keyframes moveToBottom{to{-moz-transform:translateY(100%)}
+}
+@keyframes moveToBottom{to{transform:translateY(100%)}
+}
+@-webkit-keyframes moveFromBottom{from{-webkit-transform:translateY(100%)}
+}
+@-moz-keyframes moveFromBottom{from{-moz-transform:translateY(100%)}
+}
+@keyframes moveFromBottom{from{transform:translateY(100%)}
+}

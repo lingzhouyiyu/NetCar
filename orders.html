@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>订单中心</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/orders.css" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp">
+		<div class="mui-content mui-scroll-wrapper pullrefresh">
+			<div class="ub ub-ver listmain">
+				<div class="ub ub-ver orders_list">
+
+				</div>
+				<div class="ub ub-ac ub-pc sc-text noorder">
+					<span class="ub warmline"></span>
+					<span class="ub">暂无更多订单信息</span>
+					<span class="ub warmline"></span>
+				</div>
+			</div>
+		</div>
+
+		<!--底部-->
+		<div class="ub footer">
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goindex()">
+				<div class="ub footer_img">
+					<img src="common/images/foot01.png" />
+					<img class="dhide" src="common/images/foot01_active.png" />
+				</div>
+				<div class="ub ft085 col999">首页</div>
+			</div>
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goorders()">
+				<div class="ub footer_img">
+					<img class="dhide" src="common/images/foot02.png" />
+					<img src="common/images/foot02_active.png" />
+				</div>
+				<div class="ub ft085 colgloden02">订单</div>
+			</div>
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goperson()">
+				<div class="ub footer_img">
+					<img src="common/images/foot03.png" />
+					<img class="dhide" src="common/images/foot03_active.png" />
+				</div>
+				<div class="ub ft085 col999">个人</div>
+			</div>
+		</div>
+		<!--订单模板-->
+		<div class="ordertemp dhide">
+			<div class="ub orders_item orderitem">
+				<span class="ub line_bg"></span>
+				<div class="ub ub-f1 orders_main">
+					<div class="ub ub-ver ub-f1 ub-fh orders_left">
+						<div class="ub colgloden ft125 startstation">昆明</div>
+						<div class="ub ft075 colgop mar-t mar-b">到</div>
+						<div class="ub colgloden ft125 endstation">昆明</div>
+					</div>
+					<div class="ub ub-f1 ub-fh orders_center">
+						<div class="ub ub-ac">
+							<img class="ub ub-img orders_img" src="common/images/stationline02.png" />
+						</div>
+						<div class="ub ub-pc ft075 colgop ub-ver">
+							<div class="ub umar-b">
+								<span class="usedate">2017-12-5</span>
+								<span class="usetime dhide">8：30</span>
+							</div>
+							<div class="ub cartype">豪华商务七座车</div>
+						</div>
+					</div>
+					<div class="ub ub-ac ub-pe ub-f1 ub-fh">
+						<span class="colhgreen status orderstatus"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js"></script>
+<script>
+	$(function() {
+		var orderdeatil_refresh = sessionStorage.getItem("orderdeatil_refresh");
+			if(orderdeatil_refresh) {
+				sessionStorage.removeItem("orderdeatil_refresh");
+				window.location.reload();
+			}
+			iosrefresh();
+		
+		addorder();
+	});
+	//下拉刷新具体业务实现
+	mui.init({
+		pullRefresh: {
+			container: '.pullrefresh',
+			down: {
+				callback: pulldownRefresh
+			}
+		}
+	});
+	var openid = localStorage.getItem("openid");
+
+	function pulldownRefresh() {
+		setTimeout(function() {
+			$('.orders_list').empty();
+			addorder();
+			mui('.pullrefresh').pullRefresh().endPulldownToRefresh();
+		}, 1500);
+	}
+	//加载订单列表
+	function addorder() {
+		
+		var furl = "/AboutClassAPIManage/CarOrderAPI/GetCarOrderGroupListJson?openId=" + openid;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var datas = result.resultdata;
+				var length = datas.length;
+				if(length > 0) {
+					for(var i = 0; i < length; i++) {
+						additem(datas[i]);
+					}
+				}
+			}
+		});
+	}
+
+	function additem(data) {
+		var list = $(".orders_list");
+		var OrderStatus = data.OrderStatus;
+		var isComment = data.IsComment;
+		var OrderGroupCode = data.OrderGroupCode;
+		var item = $(".ordertemp .orderitem").clone();
+		if(OrderStatus == 0) { //代付款
+			
+			item.find(".orderstatus").text("待付款");
+			item.find(".orderstatus").removeClass("colhgreen").addClass("colred");
+		}
+		if(OrderStatus == 1) { //已支付
+			item.find(".orderstatus").text("已支付");
+		}
+		if(OrderStatus == 2) { //已退款
+			item.find(".orderstatus").text("已退款");
+		}
+		if(OrderStatus == 3) { //已取消
+			item.find(".orderstatus").text("已取消");
+		}
+		if(OrderStatus == 5) { //已改签
+			item.find(".orderstatus").text("已改签");
+		}
+		if(OrderStatus == 4 && isComment == false) { //已上车,未评价
+			item.find(".orderstatus").text("待评价");
+			item.find(".orderstatus").removeClass("colhgreen").addClass("colred");
+		}
+		if(OrderStatus == 4 && isComment == true) { //已上车,已评价
+			item.find(".orderstatus").text("已完成");
+		}
+		item.attr("OrderGroupCode", OrderGroupCode);
+		item.attr("OrderStatus", data.OrderStatus);
+		item.attr("isComment", data.isComment);
+		item.find(".startstation").text(data.beginStation);
+		item.find(".endstation").text(data.endStation);
+		item.find(".usedate").text(data.useDates);
+		//item.find(".usetime").text(data.useTimes);
+		item.find(".cartype").text(data.useTimes);
+		item.attr('onclick', "orderDetail(this)");
+		list.append(item);
+	}
+
+	//打开订单详情页
+	function orderDetail(dom) {
+		var OrderGroupCode = $(dom).attr("OrderGroupCode");
+		var orderId = $(dom).attr("orderId");
+		localStorage.setItem("OrderGroupCode", OrderGroupCode);
+		localStorage.setItem("orderId", orderId);
+		mui.openWindow({
+			url: 'ordersdetail.html?v=1.0',
+			id: 'ordersdetail',
+		});
+	}
+
+	//绑定tap事件
+	mui(".pullrefresh").on('tap', '.orderitem', function(event) {
+		this.click();
+	});
+</script>

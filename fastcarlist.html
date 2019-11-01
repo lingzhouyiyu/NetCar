@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>来云游 闪送</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/carlist.css" rel="stylesheet" />
+		<script src="common/js/jquery-2.1.4.min.js"></script>
+	</head>
+
+	<body class="bc-text um-vp mainbg">
+		<div class="ub ub-f1 ub-ver page01">
+			<!--头部背景选择框-->
+			<div class="ub ub-ver main_top">
+				<div class="ub ub-ver index_topbar colwhite">
+					<div class="ub ub-ac marb06 marl1">
+						<div class="ub fa fa-bars umar-r"></div>
+						<div class="ub ft09">当前线路</div>
+					</div>
+					<div class="ub route_barbox pagebox">
+						<div class="ub ub-ac ub-f1 route_main">
+							<div class="ub ub-f1 ub-pc ub-ac route_bg">
+								<div class="ub route_line ub-pc ub-ac colgloden">
+									<span class="ub startstation"></span>
+									<span class="ub route_linebg"></span>
+									<span class="ub endstation"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ub ub-ac route_timebox">
+						<div class="ub ub-pc time_left fa fa-angle-left colgloden" id="backleft"></div>
+						<a href="#starttimepage" class="ub ub-pc ub-f1 time_txt colgloden  pagebox" id="starttime">
+							<span class="timetxt"></span>
+							<span class="dbweek"></span>
+						</a>
+						<div class="ub ub-pc time_right fa fa-angle-right colgloden" id="backright"></div>
+					</div>
+					<div class="ub ub-ac ub-pc index_news dhide">
+						<div class="ub ub-ac hot_left">
+							<img class="ub ub-ac ub-img" src="common/images/hot_bg.png" />
+						</div>
+						<div class="ub news_scroll">
+							<div class="ub ub-ver news_list gocoupon">
+								<div class="ub ft085 colgloden news_item txthide">
+									多线路上线，用户可根据需求购买车票
+								</div>
+								<div class="ub ft085 colgloden news_item txthide">
+									恭喜你获得200元红包
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ub ub-ac car_top">
+						<div class="ub ub-ac">
+							<img class="ub ub-img car_img01" src="common/images/car01.png" />
+						</div>
+						<div class="ub ub-ac sc-text ft085 marl06">
+							<span>当天车次</span>
+							<span class="timetxt02"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--车次列表-->
+			<div class="ub carbox ub-ver" style="top: 11em;">
+				<div class="ub ub-ver">
+					<div class="ub carlist ub-ver">
+
+					</div>
+					<div class="ub ub-ac ub-pc sc-text nocarwarm">
+						<span class="ub warmline"></span>
+						<span class="ub">暂无更多车次信息</span>
+						<span class="ub warmline"></span>
+					</div>
+				</div>
+			</div>
+
+			<!--底部-->
+			<div class="ub footer">
+				<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goindex()">
+					<div class="ub footer_img">
+						<img class="dhide" src="common/images/foot01.png" />
+						<img src="common/images/foot01_active.png" />
+					</div>
+					<div class="ub ft085 colgloden02">首页</div>
+				</div>
+				<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goorders()">
+					<div class="ub footer_img">
+						<img src="common/images/foot02.png" />
+						<img class="dhide" src="common/images/foot02_active.png" />
+					</div>
+					<div class="ub ft085 col999">订单</div>
+				</div>
+				<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goperson()">
+					<div class="ub footer_img">
+						<img src="common/images/foot03.png" />
+						<img class="dhide" src="common/images/foot03_active.png" />
+					</div>
+					<div class="ub ft085 col999">个人</div>
+				</div>
+			</div>
+		</div>
+		<!--线路选择页面-->
+		<div class="ub ub-ver switch_page switch_page01 dhide" id="startplacepage">
+			<div class="ub ub-ver search_box">
+				<div class="ub ub-ver search_topbar colwhite">
+					<div class="ub ub-ac umar-b marl06">
+						<div class="ub fa fa-bars umar-r"></div>
+						<div class="ub ft09">选择你的线路</div>
+					</div>
+					<div class="ub ub-ac ub-f1 route_search">
+						<div class="ub ub-f1 ub-pc ub-ac route_bg">
+							<div class="ub ub-ac ub-f1 ele_search uinput ele_put">
+								<input class="ulev-ele lineput" type="text" placeholder="搜索线路" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--线路列表-->
+			<div class="ub ub-ver lineslist">
+
+			</div>
+		</div>
+		<!--选择出发时间页面-->
+		<div class="ub ub-ver switch_page dhide" id="starttimepage">
+			<div class="ub ub-f1 week ub-ac ub-pc week_top">
+				<div class="ub ub-f1 ub-pc ub-fh cheng">日</div>
+				<div class="ub ub-f1 ub-pc ub-fh">一</div>
+				<div class="ub ub-f1 ub-pc ub-fh">二</div>
+				<div class="ub ub-f1 ub-pc ub-fh">三</div>
+				<div class="ub ub-f1 ub-pc ub-fh">四</div>
+				<div class="ub ub-f1 ub-pc ub-fh">五</div>
+				<div class="ub ub-f1 ub-pc ub-fh cheng">六</div>
+			</div>
+			<div class="ub ub-ver date">
+				<div class="ub ub-ver datelist datelist01">
+					<div class="ub ub-ac ub-pc month cander_top">2017年5月</div>
+					<ul class="days cander_box">
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">1</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">2</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">3</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">4</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">5</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">6</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">7</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">8</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">9</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">10</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">11</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">12</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">13</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">14</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">15</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">16</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">17</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">18</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">19</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">20</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">21</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">22</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">23</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">24</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">25</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">26</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">27</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">28</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">29</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">30</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+					</ul>
+
+					<div class="ub ub-ac ub-pc month cander_top dhide">2017年5月</div>
+					<ul class="days cander_box">
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">1</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">2</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">3</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">4</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">5</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">6</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">7</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">8</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">9</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">10</span>
+						</li>
+						<li class="ub  ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc ash data_item">11</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">12</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">13</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">14</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">15</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">16</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">17</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">18</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">19</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">20</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">21</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">22</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">23</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">24</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">25</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">26</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">27</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">28</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">29</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item">30</span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+						<li class="ub ub-ac ub-pc">
+							<span class="ub ub-ac ub-pc data_item"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--线路模板-->
+		<div class="linetemp dhide">
+			<div class="ub ub-ac line_item lineitem">
+				<span class="ub line_bg"></span>
+				<span class="linestart cfcstxt linestart serchname">北京</span>
+				<span class="ub center_line"></span>
+				<span class="lineend mdcstxt lineend serchname">上海</span>
+			</div>
+		</div>
+		<!--车次模板-->
+		<div class="cartemp dhide">
+			<div class="ub ub-ac caritem sc-text">
+				<div class="ub ub-ac car_time">
+					<span class="ft125 ftb colgloden starttime">23:58</span>
+				</div>
+				<div class="ub">
+					<div class="ub ub-ac carline">
+						<img class="ub ub-img car_img02 sublinebefore" src="common/images/carlinebg.png" />
+						<img class="ub ub-img car_img02 dhide sublineafter" src="common/images/sublineafter.png" />
+					</div>
+				</div>
+				<div class="ub ub-f1 ft080 txthide umar-l colgloden direction_box">
+					<span class="direction">巫家坝</span>乘车点
+				</div>
+				<a href="tel:188-0870-6602" class="ub ub-ae dbtel">
+					<img style="width: 1.4em;" class="ub ub-img tel-before" src="common/images/fast-tel.png" />
+					<img style="width: 1.4em;" class="ub ub-img tel-after dhide" src="common/images/fast-tel02.png" />
+				</a>
+			</div>
+		</div>
+	</body>
+
+</html>
+
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js"></script>
+<script src="common/js/cardata.js"></script>
+<script type="text/javascript">
+	$(function() {
+		location.hash = 'mainpage'; //每次页面重新加载时都回到page1
+		window.onhashchange = function(e) {
+			//当hash变化时，执行hashchange事件，该事件具有oldURL和newURL两个事件属性，分别代表前一个URL和目前的URL
+			var oldHash = e.oldURL.split('#')[1]; //取得前一个hash
+			var newHash = e.newURL.split('#')[1]; //取得当前hash
+			//显示当前page
+			if(oldHash == "mainpage") {
+				return;
+			}
+			//隐藏前一个page
+			$("#" + oldHash).addClass("pt-page-moveToTop").removeClass("pt-page-moveFromTop");
+
+		};
+
+		var usedate = localStorage.getItem("usedate");
+		var dbweek = localStorage.getItem("dbweek");
+		$(".timetxt").text(usedate);
+		$(".timetxt02").text(usedate);
+		$(".dbweek").text(dbweek);
+		stetel();
+		getcarlist(); //加载线路
+		
+
+	});
+
+	//页面切换
+	$(".pagebox").click(function() {
+		var id = $(this).attr("id");
+		id = id + "page";
+		$("#" + id).removeClass("dhide").addClass("pt-page-moveFromTop");
+		$("#" + id).removeClass("pt-page-moveToTop");
+		location.hash = id;
+	});
+
+	//页面关闭
+	function dbgoback() {
+		$(".switch_page").addClass("pt-page-moveToTop").removeClass("pt-page-moveFromTop");
+	}
+
+	$(".switch_page").click(function() {
+
+		dbgoback();
+	});
+
+	//日期加减
+	function getNextDay(d) {
+		d = new Date(d);
+		d = +d + 1000 * 60 * 60 * 24;
+		d = new Date(d);
+		var weekArray = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+		var week = weekArray[new Date(d).getDay()];
+		$(".dbweek").text(week);
+		//格式化
+		var year = d.getFullYear();
+		var month = d.getMonth() + 1;
+		var day = d.getDate();
+		if(month < 10) {
+			month = '0' + month;
+		}
+		if(day < 10) {
+			day = '0' + day;
+		}
+		return year + '-' + month + '-' + day;
+
+	}
+
+	function getLastDay(d) {
+
+		d = new Date(d);
+		d = +d - 1000 * 60 * 60 * 24;
+		d = new Date(d);
+		d = new Date(d);
+		var weekArray = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+		var week = weekArray[new Date(d).getDay()];
+		$(".dbweek").text(week);
+		//格式化
+		var year = d.getFullYear();
+		var month = d.getMonth() + 1;
+		var day = d.getDate();
+		if(month < 10) {
+			month = '0' + month;
+		}
+		if(day < 10) {
+			day = '0' + day;
+		}
+		return year + '-' + month + '-' + day;
+
+	}
+
+	$("#backleft").click(function() {
+		var currtime = $(".timetxt").text();
+		var now = new Date();
+		var year = now.getFullYear();
+		var month = now.getMonth() + 1;
+		var day = now.getDate();
+		if(month < 10) {
+			month = '0' + month;
+		}
+		if(day < 10) {
+			day = '0' + day;
+		}
+		today = year + '-' + month + '-' + day;
+		var start = new Date(currtime.replace("-", "/").replace("-", "/"));
+		var end = new Date(today.replace("-", "/").replace("-", "/"));
+		if(end < start) {
+			currtime = getLastDay(currtime);
+			$(".timetxt").text(currtime);
+			$(".timetxt02").text(currtime);
+		}
+		$('.carlist').empty();
+		getcarlist();
+
+	});
+	$("#backright").click(function() {
+		var currtime = $(".timetxt").text();
+		currtime = getNextDay(currtime);
+		$(".timetxt").text(currtime);
+		$(".timetxt02").text(currtime);
+		$('.carlist').empty();
+		getcarlist();
+	});
+
+	//设置电话号码
+	var curtel = '';
+	function stetel() {
+		var StartStationName = localStorage.getItem("beginstation");
+		var EndStationName = localStorage.getItem("endstation");
+
+		if(StartStationName == "昆明" && EndStationName == '昭通') {
+			curtel = "18808706601";
+		}
+		if(StartStationName == "昭通" && EndStationName == '昆明') {
+			curtel = "0870-2133308";
+		}
+		if(StartStationName == "昭通" && (EndStationName == '彝良' ||EndStationName == '绥江' || EndStationName == '大关' )) {
+			curtel = "0870-235666";
+		}
+		if(StartStationName == "巧家" && EndStationName == '昭通') {
+			curtel = "18987028622";
+		}
+		if(StartStationName == "昭通" && EndStationName == '巧家') {
+			curtel = "0870-235666";
+		}
+		if(StartStationName == "水富" && EndStationName == '昭通') {
+			curtel = "15987020018";
+		}
+		if(StartStationName == "昭通" && EndStationName == '水富') {
+			curtel = "0870-235666";
+		}
+	}
+
+	//加载车次列表
+	function getcarlist() {
+		var UseDate = $(".timetxt").text();
+		var StartStationName = localStorage.getItem("beginstation");
+		var EndStationName = localStorage.getItem("endstation");
+		$(".startstation").text(StartStationName);
+		$(".endstation").text(EndStationName);
+		$(".timetxt").text(UseDate);
+		var furl = "/AboutClassAPIManage/AboutClassAPI/GetAboutClassList";
+		var queryJson = {
+			StartStationName: StartStationName,
+			EndStationName: EndStationName,
+			UseDate: UseDate
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			data: {
+				queryJson: JSON.stringify(queryJson)
+			},
+			success: function(result) {
+				var datas = result.resultdata;
+				var length = datas.length;
+				if(length > 0) {
+					for(var i = 0; i < length; i++) {
+						addcar(datas[i]);
+					}
+				}
+
+			}
+
+		});
+	}
+
+	function addcar(data) {
+		var list = $(".carlist");
+		var data01 = data.UseDate;
+		var data02 = data.UseTime;
+		var seat = data.Remaining;
+		var TakeTime = data.TakeTime;
+		var endtime = data01 + " " + data02;
+		var ttd = new Date(endtime.replace("-", "/").replace("-", "/"));
+		var starttime = new Date(ttd);
+		var now = new Date();
+		var end = starttime;
+		var Seating = data.Seating; //车的座位数
+		var result = Math.floor(end - now) / 1000;
+		var startstation = $(".startstation").text();
+		var endstation = $(".endstation").text();
+		if(startstation == "昭通") {
+			$(".startprice").text(120);
+		}
+		if(startstation == "昆明") {
+			$(".startprice").text(120);
+		}
+		if(startstation == "绥江" || endstation == "绥江") {
+			$(".startprice").text(130);
+		}
+		if(startstation == "大关" || endstation == "大关") {
+			$(".startprice").text(30);
+		}
+		if(startstation == "彝良" || endstation == "彝良") {
+			$(".startprice").text(30);
+		}
+		if(startstation == "镇雄" || endstation == "镇雄") {
+			$(".startprice").text(258);
+		}
+		if(startstation == "呈贡大学城" || endstation == "呈贡大学城") {
+			$(".startprice").text(160);
+		}
+		if(startstation == "杨林职教园区" || endstation == "杨林职教园区") {
+			$(".startprice").text(130);
+		}
+		if(startstation == "水富" || endstation == "水富") {
+			$(".startprice").text(118);
+		}
+		if(startstation == "巧家" || endstation == "巧家") {
+			$(".startprice").text(88);
+		}
+		if(startstation == "宜宾西门客运站" || endstation == "宜宾西门客运站") {
+			$(".startprice").text(50);
+		}
+		if(startstation == "木杆镇" || endstation == "木杆镇") {
+			$(".startprice").text(60);
+		}
+
+		if(TakeTime == 0 || seat == 0) {
+			var item = $(".cartemp .caritem").clone();
+			$(item).find(".starttime").removeClass("colgloden");
+			$(item).find(".seatbox").removeClass("colhgreen");
+			$(item).find(".direction_box").removeClass("colgloden");
+			$(item).find(".sealbox").removeClass("colgloden");
+			$(item).find(".pricebox").removeClass("col90");
+			$(item).find(".sublinebefore").addClass("dhide");
+			$(item).find(".sublineafter").removeClass("dhide");
+			$(item).find(".tel-before").addClass("dhide");
+			$(item).find(".tel-after").removeClass("dhide");
+			$(item).find(".sealimg").addClass("dhide");
+			$(item).find(".soldoutimg").removeClass("dhide");
+			item.find(".FRemaining").text(0);
+			item.attr('onclick', "carwarm(this)");
+
+		} else {
+			var item = $(".cartemp .caritem").clone();
+			item.attr('onclick', "dbtel(this)");
+			item.find(".FRemaining").text(data.Remaining);
+		}
+
+		item.attr("id", data.ClassId);
+		item.find(".starttime").text(data.UseTime);
+		item.find(".setting").text(data.Seating);
+		item.find(".direction").text(data.DeparturePointName);
+		item.find(".Fprice").text(data.StarCount);
+		//item.find(".Frate").text(data.Remaining);
+		list.append(item);
+	}
+	//车次操作
+	function dbtel(dom) {
+		$(dom).find(".dbtel").attr("href","tel:"+curtel);
+		var ClassId = $(dom).attr("id");
+		var UseTime = $(dom).find(".starttime").text();
+		var UseDate = $(".timetxt").text();
+		var StartStationName = $(".startstation").text();
+		var EndStationName = $(".endstation").text();
+		var setting = $(dom).find(".setting").text();
+		localStorage.setItem("ClassId", ClassId);
+		localStorage.setItem("UseTime", UseTime);
+		localStorage.setItem("UseDate", UseDate);
+		localStorage.setItem("StartStationName", StartStationName);
+		localStorage.setItem("EndStationName", EndStationName);
+		localStorage.setItem("setting", setting);
+		//		mui.openWindow({
+		//			url: 'seat.html',
+		//			id: 'seat',
+		//		});
+
+	}
+
+	//过期车次操作
+	function carwarm(dom) {
+		mui.alert('该班次已临近发车，请选择其他时段的班次！', '系统提示');
+	}
+</script>

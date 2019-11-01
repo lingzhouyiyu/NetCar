@@ -1,0 +1,12 @@
+.personal_top{ background: url(../common/images/person08.jpg) no-repeat; background-size: cover; padding: 2em 0.6em ;}
+.personal_head img{ width: 5em; height: 5em; border-radius: 50%; border: 1px solid #fff; }
+.person_sign img{ width: 1.8em;}
+.personal_topb{ margin-top: 1em;}
+.route_linebg{ width: 2.2em; height: 1px; background: #FF6600; margin: 0 4px;  }
+.commit_list{ padding: 0.6em 0.4em;}
+.commit_item{ background: #fff; padding: 0.4em 0.6em; border-radius: 8px; margin-bottom: 0.5em;box-shadow:2px 2px 5px #aaaaaa;}
+.commit_top{ border-bottom: 1px dashed #FF6600; padding: 0.4em 0;}
+
+
+.commit_start img{ width: 1.2em;}
+.commit_bottom{ padding-top: 0.6em;}

@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>个人中心</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css?v=1.6.0" rel="stylesheet" />
+		<link href="common/css/control.css?v=1.6.0" rel="stylesheet" />
+		<link href="maincss/personal.css?v=1.6.0" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp bg-white">
+		<div class="ub ub-ver ub-ac ub-pc personal_top">
+			<div class="ub personal_head">
+				<img class="pheadimg" src="common/images/lyy_logo.jpg" />
+			</div>
+			<div class="ub personal_topb">
+				<div class="ub ub-ac person_sign">
+					<img class="ub ub-img" src="common/images/person09.png" />
+				</div>
+				<div class="ub colwhite marl06 pname">来云游新用户</div>
+				<div class="ub colwhite marl1 dhide">云豆：</div>
+				<div class="ub colwhite curvalue dhide">0</div>
+			</div>
+		</div>
+		<!-- 列表按钮-->
+		<div class="ub ub-ver find_list">
+			<div class="ub find_item dhide">
+				<div class="ub ub-ac find_leftImg">
+					<img src="common/images/person01.png" />
+				</div>
+				<div class="ub ub-ac ub-f1">
+					我的红包
+				</div>
+				<div class="ub ub-ac find_rightImg">
+					<img src="common/images/icon_grayR.png" />
+				</div>
+			</div>
+			<div class="ub find_item goccr">
+				<div class="ub ub-ac find_leftImg">
+					<img src="common/images/person02.png" />
+				</div>
+				<div class="ub ub-ac ub-f1">
+					常用乘车人
+				</div>
+				<div class="ub ub-ac find_rightImg">
+					<img src="common/images/icon_grayR.png" />
+				</div>
+			</div>
+			<div class="ub find_item gocoupon dhide">
+				<div class="ub ub-ac find_leftImg">
+					<img class="width12" src="common/images/person03.png" />
+				</div>
+				<div class="ub ub-ac ub-f1">
+					我的优惠券
+				</div>
+				<div class="ub ub-ac find_rightImg">
+					<img src="common/images/icon_grayR.png" />
+				</div>
+			</div>
+			<div class="ub find_item gopj dhide">
+				<div class="ub ub-ac find_leftImg">
+					<img src="common/images/person05.png" />
+				</div>
+				<div class="ub ub-ac ub-f1">
+					我的评价
+				</div>
+				<div class="ub ub-ac find_rightImg">
+					<img src="common/images/icon_grayR.png" />
+				</div>
+			</div>
+			<div class="ub find_item gomember dhide">
+				<div class="ub ub-ac find_leftImg">
+					<img src="common/images/person06.png" />
+				</div>
+				<div class="ub ub-ac ub-f1">
+					我的积分
+				</div>
+				<div class="ub ub-ac find_rightImg">
+					<img src="common/images/icon_grayR.png" />
+				</div>
+			</div>
+			<div class="ub find_item goyjfk">
+				<div class="ub ub-ac find_leftImg">
+					<img class="width12" src="common/images/person04.png" />
+				</div>
+				<div class="ub ub-ac ub-f1">
+					投诉意见
+				</div>
+				<div class="ub ub-ac find_rightImg">
+					<img src="common/images/icon_grayR.png" />
+				</div>
+			</div>
+
+			<div class="ub find_item goabout dhide">
+				<div class="ub ub-ac find_leftImg">
+					<img src="common/images/person07.png" />
+				</div>
+				<div class="ub ub-ac ub-f1">
+					版本更新
+				</div>
+				<div class="ub ub-ac find_rightImg">
+					<img src="common/images/icon_grayR.png" />
+				</div>
+			</div>
+		</div>
+		<!--底部-->
+		<div class="ub footer">
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goindex()">
+				<div class="ub footer_img">
+					<img class="dhide" src="common/images/foot01.png" />
+					<img src="common/images/foot01_active.png" />
+				</div>
+				<div class="ub ft085 col999">首页</div>
+			</div>
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goorders()">
+				<div class="ub footer_img">
+					<img src="common/images/foot02.png" />
+					<img class="dhide" src="common/images/foot02_active.png" />
+				</div>
+				<div class="ub ft085 col999">订单</div>
+			</div>
+			<div class="ub ub-ver ub-ac ub-pc ub-f1 ub-fh" onclick="goperson()">
+				<div class="ub footer_img">
+					<img class="dhide" src="common/images/foot03.png" />
+					<img src="common/images/foot03_active.png" />
+				</div>
+				<div class="ub ft085 colgloden02">个人</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js?v=1.6.0"></script>
+<script>
+	$(function() {
+		getUseInfor();
+		getinfor();
+	});
+	var openid = localStorage.getItem("openid");
+	//打开乘车人
+	$(".goccr").click(function() {
+		mui.openWindow({
+			url: 'uselist.html?v=1.6.0',
+			id: 'uselist',
+		});
+	});
+	//打开意见反馈
+	$(".goyjfk").click(function() {
+		mui.openWindow({
+			url: 'suggest.html',
+			id: 'suggest',
+		});
+	});
+	//打开我的评价
+	$(".gopj").click(function() {
+		mui.openWindow({
+			url: 'commitlist.html',
+			id: 'commitlist',
+		});
+	});
+	//打开优惠券
+	$(".gocoupon").click(function() {
+		mui.openWindow({
+			url: 'coupon.html',
+			id: 'coupon',
+		});
+	});
+	//打开积分
+	$(".gomember").click(function() {
+		mui.openWindow({
+			url: 'member.html',
+			id: 'member',
+		});
+	});
+	//打开版本更新
+	$(".goabout").click(function() {
+		mui.openWindow({
+			url: 'about.html',
+			id: 'about',
+		});
+	});
+
+	//获取用户头像信息
+	function getUseInfor() {
+		var furl = "/AboutClassAPIManage/AboutUserAPI/GetFansInfo?openid=" + openid;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var pname = result.resultdata.NickName;
+				var pheadimg = result.resultdata.HeadImgUrl;
+				if(pname != null) {
+					$(".pname").text(pname);
+				}
+				if(pname = null) {
+					$(".pname").text("来云游新用户");
+				}
+				if(pheadimg != null) {
+					$(".pheadimg").attr("src", pheadimg);
+				}
+				if(pheadimg = null) {
+					$(".pheadimg").attr("src", "common/images/lyy_logo.jpg");
+				}
+			}
+
+		});
+	}
+	//加载积分信息
+	function getinfor() {
+		var furl = "/AboutClassAPIManage/GradeManageAPI/GetGradeVIP?openid=" + openid;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var type = result.type;
+				if(type == 1) {
+					var curvalue = result.resultdata.history.KYYunDou;
+					$(".curvalue").text(curvalue);
+				}
+				if(type == 3) {
+					$(".curvalue").text(0);
+				}
+
+			}
+
+		});
+
+	}
+</script>

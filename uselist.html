@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>常用乘客</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css?v=1.6.0" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/person.css?v=1.6.0" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp bc-bg">
+		<div class="ub ub-ac ub-pc colgloden adduse_btn">
+			<div class="ub ub-ac umar-r adduse_img">
+				<img class="ub ub-img" src="common/images/add_img.png" />
+			</div>
+			<div class="ub ub-ac">新增乘客</div>
+		</div>
+		<div class="ub ub-ver use_list">
+			
+		</div>
+		<!--乘客模板-->
+		<div class="usetemp dhide">
+			<div class="ub use_item">
+				<div class="ub ub-ac use_delete">
+					<img class="ub ub-img" src="common/images/delete_img.png" />
+				</div>
+				<div class="ub ub-f1 ub-ver use_center">
+					<div class="ub umar-b  ub-ac use_name Fname">
+						张三
+					</div>
+					<div class="ub ub-ac ft085 sc-text">
+						<span class="marr06">手机号</span>
+						<span class="dphone">000 0000 0000</span>
+					</div>
+					<div class="ub ub-ac ft085 sc-text">
+						<span class="marr06">身份证</span>
+						<span class="Fidcar">000000 0000 0000 0000</span>
+					</div>
+				</div>
+				<div class="ub ub-ac use_edit">
+					<img src="common/images/edit_img.png" />
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js?v=1.6.0"></script>
+<script>
+	$(function() {
+		var adduse_refresh = sessionStorage.getItem("adduse-refresh");
+		var modifyuse_refresh = sessionStorage.getItem("modifyuse_refresh");
+		if(adduse_refresh) {
+			sessionStorage.removeItem("adduse-refresh");
+			window.location.reload();
+		}
+		if(modifyuse_refresh) {
+			sessionStorage.removeItem("modifyuse_refresh");
+			window.location.reload();
+		}
+		iosrefresh()
+		getuse();
+	});
+	
+	//新增乘客按钮
+	$(".adduse_btn").on("click", function() {
+		mui.openWindow({
+			url: 'adduse.html'
+		});
+	})
+	//乘客列表
+	function getuse() {
+        var openid = localStorage.getItem("openid");
+        var furl = "/AboutClassAPIManage/PassengerInformationAPI/GetPassengerInformationList?WeChatID=" + openid;
+        $.ajax({
+            url: Serverurl + furl,
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                var datas = result.resultdata;
+                var length = datas.length;
+                if (length > 0) {
+                    for (var i = 0; i < length; i++) {
+                        adduses(datas[i]);
+                    }
+                }
+            }
+        });
+    }
+
+    function adduses(datas) {
+        var list = $(".use_list");
+        var userName = datas.Name;
+        var mobile = datas.PhoneNumber;
+        var Fidcar = datas.IdNumber;
+       var putphone = plusXing(mobile, 3, 4);
+       var putidcar = plusXing(Fidcar, 3, 2);
+        var PIID = datas.PIID;
+        var item = $(".usetemp .use_item").clone();
+        item.find(".Fname").text(userName);
+        item.find(".dphone").text(putphone);
+        item.find(".Fidcar").text(putidcar);
+        item.attr('PIID', PIID);
+        item.attr('Fidcar', Fidcar);
+        item.attr('Fname', userName);
+        item.attr('Fphone', mobile);
+        item.find(".use_edit").attr('onclick', "modifyuse(this)");
+        item.find(".use_delete").attr('onclick', "deletuse(this)");
+        list.append(item);
+    }
+    
+    //修改联系人
+    function modifyuse(dom) {
+        var modmobile = $(dom).parent().attr('Fphone');
+        var modidcar = $(dom).parent().attr('Fidcar');
+        var modname = $(dom).parent().attr('Fname');
+        var modid = $(dom).parent().attr("piid");
+        var usedatas = {
+            modname: modname,
+            modidcar: modidcar,
+            modid: modid,
+            modmobile: modmobile
+        }
+        var moddatas = JSON.stringify(usedatas)
+        localStorage.setItem("moddatas", moddatas);
+        console.log(moddatas);
+        mui.openWindow({
+            url: 'edituse.html',
+            id: 'edituse',
+        });
+    }
+    //删除乘客
+    function deletuse(dom) {
+        var PIID = $(dom).parent().attr("PIID");
+        var furl = "/AboutClassAPIManage/PassengerInformationAPI/DeletePassengerInformation?PIID=" + PIID;
+        var btnArray = ['否', '是'];
+        mui.confirm('是否确定删除乘客？', '系统提示', btnArray, function (e) {
+            if (e.index == 1) {
+                $.ajax({
+                    url: Serverurl + furl,
+                    type: "get",
+                    async: false,
+                    dataType: "json",
+                    success: function (result) {
+                        $(dom).parent().remove();
+                    }
+                });
+            } else {
+                return;
+            }
+        })
+    }
+    
+</script>

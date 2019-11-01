@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>订票成功通知</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<style>
+			.servertitle{ padding: 1em; font-size: 1.125em;font-weight: bold; }
+			.telback-item{ padding: 0.8em 0.6em; border-bottom: 1px solid #E1E1E1;}
+			.telback-left{font-weight: bold; width:7em ;}
+			.btns-box{ padding: 2em 0;}
+			.telbtns{ background: #fa9528; width: 6.6em; color: #fff; height: 2.4em; border-radius: 5px; }
+			.btns-item a:hover{ color: #fff;}
+		</style>
+	</head>
+
+	<body class="bc-text um-vp bc-white">
+		<div class="ub ub-ac ub-pc servertitle">
+			订票成功通知
+		</div>
+		<div class="ub telback-item">
+			<div class="ub ub-ac telback-left">
+				订单号
+			</div>
+			<div class="ub ub-ac telback-righ orderCode">
+				
+			</div>
+		</div>
+		<div class="ub telback-item">
+			<div class="ub ub-ac telback-left">
+				座位号
+			</div>
+			<div class="ub ub-ac telback-right">
+				<span class="seatNum">0</span>号座
+			</div>
+		</div>
+		<div class="ub telback-item">
+			<div class="ub ub-ac telback-left">
+				发车时间
+			</div>
+			<div class="ub ub-ac telback-right usedate">
+				
+			</div>
+		</div>
+		<div class="ub telback-item">
+			<div class="ub ub-ac telback-left">
+				预留手机号
+			</div>
+			<div class="ub ub-ac telback-right guestTel">
+				
+			</div>
+		</div>
+		<div class="ub telback-item">
+			特别提醒：请认真核对以方便客服能及时联系您。如有电话号码错误或其他问题请联系客服：<a href="tel:" class="telkftxt"></a>。如你对服务不满意可在【个人中心】的【投诉意见】留下您宝贵的建议，当然你也可以致电投诉热线：<a href="tel:" class="teltstxt"></a>感谢您的配合。
+		</div>
+		<div class="ub btns-box">
+			<div class="ub ub-ac ub-pc ub-f1 ub-fh btns-item">
+				<a href="tel:" class="ub ub-ac ub-pc telbtns telkf">
+					联系客服
+				</a>
+			</div>
+			<div class="ub ub-ac ub-pc ub-f1 ub-fh btns-item">
+				<a href="tel:" class="ub ub-ac ub-pc telbtns telts">
+					投诉
+				</a>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="scripts/Fsuper.js"></script>
+<script>
+	$(function() {
+		(function($) {
+			$.getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+		})(jQuery);
+
+		var telkf = $.getUrlParam('telkf');
+		var telts = $.getUrlParam('telts');
+		var orderCode = $.getUrlParam('orderCode');
+		var seatNum = $.getUrlParam('seatNum');
+		var usedate = $.getUrlParam('usedate');
+		var guestTel = $.getUrlParam('guestTel');
+		console.log(telkf);
+		$('.orderCode').text(orderCode);
+		$('.seatNum').text(seatNum);
+		$('.usedate').text(usedate);
+		$('.guestTel').text(guestTel);
+		$('.telkftxt').text(telkf);
+		$('.teltstxt').text(telts);
+		$('.telkf').attr("href","tel:"+ telkf);
+		$('.telts').attr("href","tel:"+ telts);
+		$('.telkftxt').attr("href","tel:"+ telkf);
+		$('.teltstxt').attr("href","tel:"+ telts);
+	});
+</script>

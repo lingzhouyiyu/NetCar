@@ -1,0 +1,15 @@
+.personal_top{ background: url(../common/images/person08.jpg) no-repeat; background-size: cover; padding: 2em 0.6em ;}
+.personal_head img{ width: 5em; height: 5em; border-radius: 50%; border: 1px solid #fff; }
+.person_sign img{ width: 1.8em;}
+.personal_topb{ margin-top: 1em;}
+.find_item{ background: #fff; padding: 0em 1em; height: 2.8em; border-bottom: 1px solid #e1e1e1; color: #323232;}
+.find_leftImg{ width: 2.6em;  }
+.find_leftImg img{width: 1.5em; }
+.find_rightImg img{ width: 0.45em;}
+.find_leftImg .width12{ width: 1.4em;}
+.find_list{ padding-bottom: 4.6em;}
+
+/*�Ų�*/
+.footer01{ position: fixed; left: 0; bottom: 0; width: 100%; overflow: hidden; background: #f5f5f5; padding: 0.3em 0; z-index: 99;  box-shadow: 0 -2px 3px #e1e1e1;} 
+.footer_img{ width: 1.6em;}
+.footer_box01{ width: 2.5em; height: 2.5em; background: #fff; border-radius: 50%; box-shadow:4px 0 12px #f79d72; }

@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+<head>
+    <title>来云游 会员中心</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="common/css/mui.min.css" rel="stylesheet" />
+    <link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+    <link href="common/css/icon.css" rel="stylesheet" />
+    <link href="common/css/ui-base.css" rel="stylesheet" />
+    <link href="common/css/ui-box.css" rel="stylesheet" />
+    <link href="common/css/ui-color.css" rel="stylesheet" />
+    <link href="common/css/common.css" rel="stylesheet" />
+    <link href="common/css/control.css" rel="stylesheet" />
+    <link href="maincss/member.css" rel="stylesheet" />
+</head>
+<body class="bc-text um-vp bc-bg">
+    <div class="ub ub-ver member_top">
+        <div class="ub top_tips">
+            <div class="ub ub-ac ft080 ub-pc tips_main">
+                <span>当前云豆:</span>
+                <span class="curvalue">0</span>
+            </div>
+            <div class="ub tips_signle"></div>
+        </div>
+        <div class="ub ub-ac ub-pc">
+            <div class="ub ub-ver ub-f1 ub-fh grade">
+                <div class="ub ub-f1">
+                    <div class="ub ub-f1 leftline"></div>
+                    <div class="ub ub-ac ub-pc member_bgcircleout">
+                        <div class="ub member_bgcirclein member_active current"></div>
+                    </div>
+                    <div class="ub ub-f1 member_bgline"></div>
+                </div>
+                <div class="ub ub-pc colwhite ft085">
+                    VIP<span>1</span>
+                </div>
+            </div>
+            <div class="ub ub-ver ub-f1 ub-fh grade">
+                <div class="ub ub-f1">
+                    <div class="ub ub-f1 member_bgline"></div>
+                    <div class="ub ub-ac ub-pc  member_bgcircleout">
+                        <div class="ub member_bgcirclein"></div>
+                    </div>
+                    <div class="ub ub-f1 member_bgline"></div>
+                </div>
+                <div class="ub ub-pc colwhite ft085">
+                    VIP<span>2</span>
+                </div>
+            </div>
+            <div class="ub ub-ver ub-f1 ub-fh grade">
+                <div class="ub ub-f1">
+                    <div class="ub ub-f1 member_bgline"></div>
+                    <div class="ub ub-ac ub-pc member_bgcircleout">
+                        <div class="ub member_bgcirclein"></div>
+                    </div>
+                    <div class="ub ub-f1 member_bgline"></div>
+                </div>
+                <div class="ub ub-pc colwhite ft085">
+                    VIP<span>3</span>
+                </div>
+            </div>
+            <div class="ub ub-ver ub-f1 ub-fh grade">
+                <div class="ub ub-f1">
+                    <div class="ub ub-f1 member_bgline"></div>
+                    <div class="ub ub-ac ub-pc member_bgcircleout">
+                        <div class="ub member_bgcirclein"></div>
+                    </div>
+                    <div class="ub ub-f1 member_bgline"></div>
+                </div>
+                <div class="ub ub-pc colwhite ft085">
+                    VIP<span>4</span>
+                </div>
+            </div>
+            <div class="ub ub-ver ub-f1 ub-fh grade">
+                <div class="ub ub-f1">
+                    <div class="ub ub-f1 member_bgline"></div>
+                    <div class="ub ub-ac ub-pc member_bgcircleout">
+                        <div class="ub member_bgcirclein"></div>
+                    </div>
+                    <div class="ub ub-f1 leftline"></div>
+                </div>
+                <div class="ub ub-pc colwhite ft085">
+                    VIP<span>5</span>
+                </div>
+            </div>
+        </div>
+        <div class="ub ub-ac ft09 colwhite ub-pc member_topbtom">
+            再获取<span class="dvalue">0</span>经验值可升级为VIP<span class="gradenum">2</span>等级
+        </div>
+    </div>
+    <div class="ub member_navbox">
+        <div class="ub ub-f1 ub-ac ub-pc ub-fh borderr colgloden member_nav" id="intelget">
+            获取历史
+        </div>
+        <div class="ub ub-f1 ub-ac ub-pc ub-fh member_nav" id="inteluse">
+            消耗历史
+        </div>
+    </div>
+    <div class="ub ub-ver intelbox" id="intelgetbox">
+        <div class="ub ub-ver intelgetlist">
+            
+        </div>
+        <div class="ub ub-ac ub-pc sc-text ft09 nocarwarm nointel dhide">
+            暂无获取记录！
+        </div>
+    </div>
+    <!--使用历史-->
+    <div class="ub ub-ver intelbox dhide" id="intelusebox">
+        <div class="ub ub-ver intellist usedlist">
+           
+        </div>
+        <div class="ub ub-ac ub-pc sc-text ft09 nocarwarm noused dhide">
+            暂无使用记录！
+        </div>
+    </div>
+    <!--获取经验模板-->
+    <div class="gettemp dhide">
+        <div class="ub ub-ver instel_item get_item">
+            <div class="ub ub-ac ft09 colgloden instel_itemtop">
+                <div class="ub ub-ac ub-f1 itemtop_left">
+                    <div class="ub ub-ac">
+                        <img class="ub ub-img item_img" src="common/images/carimg.png" />
+                    </div>
+                    <div class="ub ub-ac typename">
+                        汽车票
+                    </div>
+                </div>
+                <div class="ub itemtop_right gettime">
+                    2017-12-4  09:30
+                </div>
+            </div>
+            <div class="ub itembtom  umar-t">
+                <div class="ub ub-ver ub-f1 itembtom_left">
+                    <div class="ub ub-ac umar-b col999 getline">
+                        <span class="ub ft125 startstation">昆明</span>
+                        <span class="ub route_linebg"></span>
+                        <span class="ub ft125 endstation">昭通</span>
+                    </div>
+                    <div class="ub ub-ac umar-b col999 gettype dhide">
+                        
+                    </div>
+                    <div class="ub ub-ac ft080 colgop carname dhide">
+                        
+                    </div>
+                </div>
+                <div class="ub ub-f1 ub-ae ub-ver itembtom_right">
+                    <div class="ub ub-f1 ft085 colhgreen">
+                        <div class="ub marr1">
+                            <span class="Experience">0</span>经验值
+                        </div>
+                        <div class="ub">
+                            <span class="integralnum">0</span>云豆
+                        </div>
+                    </div>
+                    <div class="ub colgop ub-pe ub-ae dhide">
+                        ￥<span class="ft25 getmoney">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--使用云豆模板-->
+    <div class="usedtemp dhide">
+        <div class="ub ub-ver instel_item used_item">
+            <div class="ub ub-ac ft09 colgloden instel_itemtop">
+                <div class="ub ub-ac ub-f1 itemtop_left">
+                    <div class="ub ub-ac">
+                        <img class="ub ub-img item_img" src="common/images/carimg.png" />
+                    </div>
+                    <div class="ub ub-ac typename">
+                        汽车票
+                    </div>
+                </div>
+                <div class="ub itemtop_right gettime">
+                    2017-12-4  09:30
+                </div>
+            </div>
+            <div class="ub itembtom">
+                <div class="ub ub-ver ub-f1 itembtom_left">
+                    <div class="ub ub-ac umar-b col999 getline">
+                        <span class="ub ft125 startstation">昆明</span>
+                        <span class="ub route_linebg"></span>
+                        <span class="ub ft125 endstation">昭通</span>
+                    </div>
+                    <div class="ub ub-ac umar-b col999 gettype dhide">
+
+                    </div>
+                    <div class="ub ub-ac ft080 colgop carname">
+
+                    </div>
+                </div>
+                <div class="ub ub-f1 ub-ae ub-ver itembtom_right">
+                    <div class="ub ub-f1 ft085 colhgreen">
+                        <div class="ub marr1">
+                            <span class="Experience">0</span>经验值
+                        </div>
+                        <div class="ub">
+                            <span class="integralnum">0</span>云豆
+                        </div>
+                    </div>
+                    <div class="ub colgop ub-pe ub-ae">
+                        ￥<span class="ft25 getmoney">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="scripts/Fsuper.js"></script>
+<script>
+    $(function () {
+        getwidth();
+        getinfor();
+        getgainlist();
+    });
+    //导航切换
+    var openid = localStorage.getItem("openid");
+    $(".member_nav").click(function () {
+        var id = $(this).attr("id");
+        id = id + "box";
+        $(".member_nav").removeClass("colgloden");
+        $(".intelbox").addClass("dhide");
+        $(this).addClass("colgloden");
+        $("#" + id).removeClass("dhide");
+    });
+    //tips animation
+    function getwidth() {
+        var flag = $(".current").offset();
+        var twidth = ($(".top_tips").width()) / 2 - 8;
+
+        flag = flag.left - twidth;
+        $(".top_tips").animate({
+            left: flag
+        })
+    }
+    //加载积分信息
+    function getinfor() {
+        var furl = "/AboutClassAPIManage/GradeManageAPI/GetGradeVIP?openid=" + openid;
+        $.ajax({
+            url: Serverurl + furl,
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                var curvalue = result.resultdata.history.KYYunDou;
+                var dvalue = result.resultdata.vgrademnageentity.HowMuch;
+                var gradenum = result.resultdata.vgrademnageentity.GradeId;
+                $(".curvalue").text(curvalue);
+                $(".dvalue").text(dvalue);
+                $(".gradenum").text(gradenum);
+            }
+
+        });
+
+    }
+
+    //获取历史点击
+    $("#intelget").click(function () {
+        $(".intelgetlist").empty();
+        getgainlist();
+    });
+    //使用历史点击
+    $("#inteluse").click(function () {
+        $(".usedlist").empty();
+        usedlist();
+    });
+    //加载获取历史列表
+    function getgainlist() {
+       
+        var furl = "/AboutClassAPIManage/GradeManageAPI/GetListUserHistory?Openid=" + openid;
+            $.ajax({
+                url: Serverurl + furl,
+                type: "get",
+                async: false,
+                dataType: "json",
+                success: function (result) {
+                    var datas = result.resultdata;
+                    var length = datas.length;
+                    if (length > 0) {
+                        for (var i = 0; i < length; i++) {
+                            addget(datas[i]);
+                        }
+                    } else {
+                        $(".nointel").removeClass("dhide");
+                    }
+
+                }
+
+            });
+       
+    }
+
+    function addget(datas) {
+        var list = $(".intelgetlist");
+        var GradeType = datas.GradeType;
+        var startstation = datas.BeginStation;
+        var endstation = datas.EndStation;
+        var getmoney = datas.OrderPrice;
+        var gettime = datas.Time;
+        var typename = datas.PIID;
+        var CarName = datas.CarName;
+        var Experience = datas.Experience;
+        var integralnum = datas.YunDou;
+        var BeginStation = datas.BeginStation;
+        var EndStation = datas.EndStation;
+        var item = $(".gettemp .get_item").clone();
+        item.find(".startstation").text(startstation);
+        item.find(".endstation").text(endstation);
+        item.find(".gettime").text(gettime);
+        item.find(".Experience").text(Experience);
+        item.find(".integralnum").text(integralnum);
+        item.find(".getmoney").text(getmoney);
+        item.find(".carname").text(CarName);
+        if (GradeType == 1) {   //订制出行购票
+            item.find(".getline").removeClass("dhide");
+            item.find(".gettype ").addClass("dhide");
+            item.find(".typename").text("汽车票");
+        }
+        if (GradeType == 2) {   //分享电子票
+            item.find(".getline").addClass("dhide");
+            item.find(".gettype ").removeClass("dhide");
+            item.find(".gettype ").text("分享电子票");
+            item.find(".typename").text("分享电子票");
+        }
+        if (GradeType == 3) {   //服务评价
+            item.find(".getline").removeClass("dhide");
+            item.find(".gettype ").addClass("dhide");
+            item.find(".typename").text("服务评价");
+        }
+        if (GradeType == 4) {   //绑定手机号
+            item.find(".getline").addClass("dhide");
+            item.find(".gettype ").removeClass("dhide");
+            item.find(".gettype ").text("绑定手机号");
+            item.find(".typename").text("绑定手机号");
+        }
+//      if (BeginStation == "" || BeginStation == null || EndStation == "" || EndStation == null) {   //绑定手机号
+//          item.find(".getline").addClass("dhide");
+//          item.find(".gettype ").removeClass("dhide");
+//          item.find(".gettype ").text("绑定手机号");
+//          item.find(".typename").text("绑定手机号");
+//      }
+        
+        if (Experience == null || Experience == "") {   
+            item.find(".Experience").text(0);
+        }
+        if (integralnum == null || integralnum == "") {
+            item.find(".integralnum").text(0);
+        }
+        if (getmoney == null || getmoney == "") {
+            item.find(".getmoney").text(0);
+        }
+       
+        list.append(item);
+    }
+
+    //加载使用历史列表
+    function usedlist() {
+        var furl = "/AboutClassAPIManage/GradeManageAPI/GetListUserDeductionHistory?Openid=" + openid;
+        $.ajax({
+            url: Serverurl + furl,
+            type: "get",
+            async: false,
+            dataType: "json",
+            success: function (result) {
+                var datas = result.resultdata;
+                var length = datas.length;
+                if (length > 0) {
+                    for (var i = 0; i < length; i++) {
+                        addused(datas[i]);
+                    }
+                } else {
+                    $(".noused").removeClass("dhide");
+                }
+
+            }
+
+        });
+
+    }
+
+    function addused(datas) {
+        var list = $(".usedlist");
+        var startstation = datas.BeginStation;
+        var endstation = datas.EndStation;
+        var getmoney = datas.OrderPrice;
+        var gettime = datas.Time;
+        var CarName = datas.CarName;
+        var Experience = datas.Experience;
+        var integralnum = datas.YunDou;
+        var item = $(".usedtemp .used_item").clone();
+        item.find(".startstation").text(startstation);
+        item.find(".endstation").text(endstation);
+        item.find(".gettime").text(gettime);
+        item.find(".Experience").text(Experience);
+        item.find(".integralnum").text(integralnum);
+        item.find(".getmoney").text(getmoney);
+        item.find(".carname").text(CarName);
+        if (Experience == null || Experience == "") {
+            item.find(".Experience").text(0);
+        }
+        if (integralnum == null || integralnum == "") {
+            item.find(".integralnum").text(0);
+        }
+        if (getmoney == null || getmoney == "") {
+            item.find(".getmoney").text(0);
+        }
+
+        list.append(item);
+    }
+</script>

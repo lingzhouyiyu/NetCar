@@ -1,0 +1,29 @@
+.mainbg{ background: #fff url(../common/images/topbg01.png) no-repeat; background-size: 100%; background-attachment: fixed;}
+.suretline{ height: 1px; background: #fff; width: 100%; margin: 2px 0;}
+.main_top{ padding: 2em 0.5em;}
+
+.refund_box{ background: rgba(255,255,255,0.71); height: 2.5em; font-size: 0.9em; padding: 0 0.6em; margin-bottom: 0.4em;}
+.refund_img{ margin-right: 0.6em;}
+.refund_img img{ width: 1.4em;}
+.center_dbox{ background: #fff; padding: 0.6em; margin-bottom: 0.4em;}
+.center_left{ margin-right: 1em;}
+.center_left02{ width: 4em;}
+.person_item{ background: #fff; border-bottom: 1px solid #efeff4; margin-bottom: 3px;}
+.person_img01 img{ width: 1em; margin-right: 0.6em;}
+.pitem_top{ border-bottom: 1px solid #efeff4;  padding:4px 0.6em ;}
+
+.orders_footer{ position: fixed; left: 0; bottom: 0; width: 100%; height: 2.8em; box-shadow: 0 -2px 3px #f59d72;} 
+.person_list{ padding-bottom: 3.1em;}
+.time_delay{ background: #FFCC99; height: 2.2em;}
+.delay_img{ width: 1.35em; margin-right: 0.4em; }
+.orders_option{padding-bottom: 2.9em;}
+.option_main{ background: #fff; margin-top: 0.4em; height: 2.5em; padding: 0 0.5em;}
+.pitem_bottom{ padding: 0 0.6em; }
+.pitem_circle{ background: rgba(255,102,0,0.62); width: 5px; height: 5px; border-radius: 50%; font-size:5px;}
+.pitem_bright{ font-size: 0.8em; color: #969696;padding: 0.4em 0; margin-left: 1em;}
+.ptbb{ border-bottom: 1px dashed rgba(255,102,0,0.31);}
+.contral_btn{ width: 4em; }
+.btn_line{ width: 1px; height: 0.8em;  background: #00CC66;}
+.check_img{ width: 0.8em;}
+.width15{ width: 1.5em;}
+.padl15{ padding-left: 1.5em;}

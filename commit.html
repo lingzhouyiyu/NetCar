@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>评价</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/commit.css" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp bg-white">
+		<div class="ub commit_top colgloden">
+			<div class="ub ub-f1 ub-fh ub-ac  commit_tleft">
+				<div class="ub ft25 beginStation"></div>
+				<div class="ub ub-ac">
+					<img class="ub ub-img comit_center" src="common/images/commit01.png" />
+				</div>
+				<div class="ub ft25 endStation"></div>
+			</div>
+			<div class="ub ub-f1 ub-fh commit_tright">
+
+				<div class="ub ub-ac">
+					<img class="ub ub-img comit_lineimg" src="common/images/stationline02.png" />
+				</div>
+				<div class="ub ub-ver ft085">
+					<div class="ub ub-f1">
+						<span class="useDates"></span>
+						<span class="useTimes"></span>
+
+					</div>
+					<div class="ub">
+						<span class="seating"></span>座车
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ub commit_center dhide">
+			<div class="ub ub-f1 commit_cleft colgloden">
+				<span class="ft085">共花费</span>
+				<span class="ft15 totalmoney">0</span>
+				<span class="ft085">元</span>
+			</div>
+			<div class="ub ub-f1 ub-ac commit_cleft ub-pe dhide">
+				<span class="ft085 sc-text umar-r">查看详细信息</span>
+				<span class="ub fa fa-caret-down colhgreen"></span>
+			</div>
+		</div>
+		<div class="ub ub-ac drive_infor" style="margin-top: 1.5em;">
+			<div class="ub driver_left">
+				<img class="DriverImg" src="common/images/driveimg.png" />
+			</div>
+			<div class="ub ub-f1 ft09 sc-text driver_right DriverSlogan">
+				感谢每一位乘客对我们的支持！
+			</div>
+		</div>
+		<div class="ub ub-ac ub-pc commcenter">
+			<ul class="pllist ub-ac ub-pc">
+				<li class="ub ub-ac ub-pc plitem">
+					<div class="outstart">
+						<div class="jdstart_box" id="jdpf">
+							<ul class="jdstarts" id="jdstarts">
+								<li>
+									<a href="javascript:void(0)" title=" 1分/很糟" class="one-star"></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)" title="2分/差" class="two-stars"></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)" title="3分/一般" class="three-stars"></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)" title="4分/很好" class="four-stars"></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)" title="5分/非常好" class="five-stars"></a>
+								</li>
+							</ul>
+							<div class="current-rating" id="showb"></div>
+						</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="ub ub-ac ub-pc description_box dhide">
+			<div class="ub ub-ac ub-pc ft085 sc-text description"></div>
+		</div>
+		<div class="ub commit_list">
+			<div class="ub ub-ver ub-f1 ub-fh commit_left commit_empty commit_list0">
+
+			</div>
+			<div class="ub ub-ver ub-f1 ub-fh commit_right commit_empty commit_list1">
+
+			</div>
+		</div>
+
+		<div class="ub uinput commit_area">
+			<textarea class="ub ub-f1 commit_txt" placeholder="写上你的宝贵建议"></textarea>
+		</div>
+		<div class="ub surebtn_box">
+			<div class="ub ub-ac ub-pc ub-f1 sure_btn">确认</div>
+		</div>
+		<!--评价temp-->
+		<div class="committemp dhide">
+			<div class="ub ub-ac ub-pc commit_item colgloden"></div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="scripts/Fsuper.js"></script>
+<script>
+	var uopenid = '';
+	var uordergroupcode = '';
+	var openid = localStorage.getItem("openid");
+	var ordergroupcode = localStorage.getItem("OrderGroupCode");
+	sessionStorage.setItem("commit_refresh", true);
+
+	$(function() {
+		(function($) {
+			$.getUrlParam = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+		})(jQuery);
+
+		uopenid = $.getUrlParam('openid');
+		uordergroupcode = $.getUrlParam("ordergroupcode");
+		carDetail();
+		getdriverInfor();
+	});
+
+	//加载订单头部
+	function carDetail() {
+		if(uordergroupcode != null && uordergroupcode != '') {
+			ordergroupcode = uordergroupcode;
+		}
+		var furl = "/AboutClassAPIManage/CarOrderAPI/GetAboutClassInfo?ordergroupcode=" + ordergroupcode;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				$(".beginStation").text(result.resultdata.StartStationName);
+				$(".endStation").text(result.resultdata.EndStationName);
+				$(".useTimes").text(result.resultdata.UseTime);
+				$(".useDates").text(result.resultdata.UseDate);
+				$(".seating").text(result.resultdata.Seating);
+				$(".mile").text(result.resultdata.Mileage);
+
+				$(".mainorderid").text(result.orderCode);
+				$(".paytime").text(result.resultdata.EstimatedArrivalTime);
+				EstimatedTime = result.resultdata.EstimatedTime;
+			}
+		});
+		//		var beginStation = localStorage.getItem("beginStation");
+		//		var endStation = localStorage.getItem("endStation");
+		//		var useTimes = localStorage.getItem("useTimes");
+		//		var useDates = localStorage.getItem("useDates");
+		//		var seating = localStorage.getItem("seating");
+		//		var totalmoney = localStorage.getItem("totalmoney");
+		//		$(".beginStation").text(beginStation);
+		//		$(".endStation").text(endStation);
+		//		$(".useTimes").text(useTimes);
+		//		$(".useDates").text(useDates);
+		//		$(".seating").text(seating);
+		//		$(".totalmoney").text(totalmoney);
+	}
+
+	var stepW = 35;
+	var n = 0;
+	var description = new Array("1分/很糟", "2分/差", "3分/一般", "4分/很好", "5分/非常好");
+	//var stars = $("#jdstarts > li");
+	var descriptionTemp;
+	$("#showb").css("width", 0);
+	$("#jdstarts > li").click(function(e) {
+		var index = $(this).index();
+		n = index + 1;
+		$(this).parent().siblings("#showb").css({
+			"width": stepW * n
+		});
+		descriptionTemp = description[index];
+		$(".description_box").removeClass("dhide");
+		$(".description").text(descriptionTemp);
+		$(".commit_empty").empty();
+		getusecoupon();
+	});
+
+	//获取每颗星的评价
+	function getusecoupon() {
+		var furl = "/AboutClassAPIManage/aboutClassAPIManage/CarOrderCommentAPI/GetEvaluateParameterByStartLevel?startLevel=" + n;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var datas = result.resultdata.Label;
+				var length = datas.length;
+				if(length > 0) {
+					for(var i = 0; i < length; i++) {
+						addcommit(datas[i], i);
+					}
+				} else {
+					return;
+				}
+			}
+		});
+	}
+
+	function addcommit(datas, index) {
+		var index = index;
+		var col = (index + 1) % 2;
+		var list = $(".commit_list" + col);
+		var item = $(".committemp .commit_item").clone();
+		var commit_cont = datas;
+		console.log(commit_cont);
+		item.text(commit_cont);
+		item.attr('onclick', "dbcommit(this)");
+		list.append(item);
+	}
+
+	//列表点击
+	function dbcommit(dom) {
+		var cuur = $(dom).hasClass("commit_active");
+		if(cuur) {
+			$(dom).removeClass("commit_active");
+		} else {
+			$(dom).addClass("commit_active");
+		}
+	}
+
+	//提交评价数据
+	$(".surebtn_box").on("click", function() {
+		var commit_active = $(".commit_empty .commit_active").length;
+		if(n <= 0) {
+			mui.alert("请为该次服务打分", "系统提示");
+			return;
+		}
+		if(commit_active <= 0) {
+			mui.alert("请选择描述标签", "系统提示");
+			return;
+		}
+		sumitcommit();
+	});
+
+	//获取评价标签
+	function eachlist(doms) {
+		var datas = {};
+		var labellist = [];
+		if($(doms).length > 0) {
+			doms.each(function(i, item) {
+				var obj = {};
+				var labelitem = $(item).text();
+				obj.OrderGroupCode = ordergroupcode;
+				obj.Label = labelitem;
+				labellist.push(obj);
+			});
+		}
+		return labellist;
+	}
+
+	function sumitcommit() {
+		if(uopenid != null && uopenid != '') {
+			openid = uopenid;
+		}
+		var list = $(".commit_empty .commit_active");
+		var Remark = $(".commit_txt").val();
+		var labelinfor = eachlist(list);
+		var senddata = {
+			openid: openid,
+			OrderGroupCode: ordergroupcode,
+			Remark: Remark,
+			StarLevel: n,
+			listLabel: labelinfor
+		}
+		console.log(senddata);
+		var entity = JSON.stringify(senddata);
+		var furl = "/AboutClassAPIManage/aboutClassAPIManage/CarOrderCommentAPI/SaveComment";
+		$.ajax({
+			url: Serverurl + furl,
+			type: "post",
+			async: false,
+			dataType: "json",
+			data: senddata,
+			success: function(result) {
+				var type = result.type;
+				if(type == 3) {
+					mui.alert("评价失败，请稍后重试！", '系统提示');
+					return false;
+				}
+				if(type == 1) {
+					mui.alert('感谢您的评价！', '系统提示', function() {
+						orderyundou();
+						history.back(-1);
+
+					});
+
+				}
+
+			}
+		});
+	}
+
+	//评价获取云豆
+	function orderyundou() {
+		var furl = "/AboutClassAPIManage/GradeManageAPI/GetUserGrade";
+		var parm = {
+			OrderGroupCode: ordergroupcode,
+			GradeType: 3,
+			openid: openid
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			data: parm,
+			success: function(result) {
+				var type = result.type;
+				if(type == 3) {
+					return;
+				}
+			}
+		});
+
+	}
+
+	//获取用户头像信息
+	function getdriverInfor() {
+		var furl = "/AboutClassAPIManage/AboutDriverAPI/GetDriverImg?ordergroupcode=" + ordergroupcode;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var type = result.result;
+				if(type == 3) {
+					$(".DriverSlogan").text("感谢每一个乘客对我们的支持！");
+					$(".DriverImg").attr("src", "common/images/driveimg.png");
+				}
+				if(type == 1) {
+					var pname = result.resultdata.DriverSlogan;
+					var pheadimg = result.resultdata.DriverImg;
+					if(pname != null) {
+						$(".DriverSlogan").text(pname);
+					}
+					if(pname = null) {
+						$(".DriverSlogan").text("感谢每一个乘客对我们的支持！");
+					}
+					if(pheadimg != null) {
+						$(".DriverImg").attr("src", pheadimg);
+					}
+					if(pheadimg = null) {
+						$(".DriverImg").attr("src", "common/images/driveimg.png");
+					}
+				}
+
+			}
+
+		});
+	}
+</script>

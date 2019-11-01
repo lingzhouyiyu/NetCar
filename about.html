@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>版本更新</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<style>
+			.logo_img {width: 6em;}
+			.about_name{ font-weight: bold; margin-top: 0.5em;}
+			.about_footer{ padding: 1em;}
+		</style>
+	</head>
+
+	<body class="ub ub-ver um-vp bg-white">
+		<div class="ub ub-ac ub-ver ub-pc ub-f1">
+			<img class="logo_img" src="common/images/lyy_logo.jpg" />
+			<div class="ub ub-ac bc-text ub-pc about_name">
+				来云游
+			</div>
+		</div>
+		<div class="ub ub-ac ft085 sc-text ub-pc about_footer">
+			&copy; 当前版本1.5.0
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js"></script>
+<script>
+	$(function() {
+		getUseInfor();
+		getinfor();
+	});
+	//获取用户头像信息
+	var openid = localStorage.getItem("openid");
+
+	function getUseInfor() {
+		var furl = "/AboutClassAPIManage/AboutUserAPI/GetFansInfo?openid=" + openid;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var pname = result.resultdata.NickName;
+				var pheadimg = result.resultdata.HeadImgUrl;
+				if(pname != null) {
+					$(".pname").text(pname);
+				}
+				if(pname = null) {
+					$(".pname").text("来云游新用户");
+				}
+				if(pheadimg != null) {
+					$(".pheadimg").attr("src", pheadimg);
+				}
+				if(pheadimg = null) {
+					$(".pheadimg").attr("src", "common/images/lyy_logo.jpg");
+				}
+			}
+
+		});
+	}
+	//加载积分信息
+	function getinfor() {
+		var furl = "/AboutClassAPIManage/GradeManageAPI/GetGradeVIP?openid=" + openid;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var curvalue = result.resultdata.history.KYYunDou;
+				$(".curvalue").text(curvalue);
+			}
+
+		});
+
+	}
+
+	var CompliantType;
+	$(".check_item").click(function() {
+		var check_before = $(this).find(".check_before");
+		var check_after = $(this).find(".check_after");
+		$(".check_before").removeClass("dhide");
+		$(".check_after").addClass("dhide");
+		$(".check_item").removeClass("hascheck");
+		$(check_before).addClass("dhide");
+		$(check_after).removeClass("dhide");
+		$(this).addClass("hascheck");
+	});
+
+	function submit() {
+		var suggestput = $(".suggestput").val();
+		var suggesttel = $(".suggesttel").val();
+		if(suggestput == "") {
+			mui.alert('请填写您的宝贵意见！', '系统提示');
+			return;
+		}
+		if(suggesttel == "") {
+			mui.alert('请填写您的联系方式！', '系统提示');
+			return;
+		}
+		if(suggestput != "" && suggesttel != "") {
+			sendcommit();
+		}
+
+	}
+
+	//提交意见数据
+	function sendcommit() {
+		var furl = "/AboutClassAPIManage/aboutClassAPIManage/CarOrderCommentAPI/SaveComplaintHandling";
+		var CompliantType = $(".hascheck").attr("sugtxt");
+		var suggestput = $(".suggestput").val();
+		var suggesttel = $(".suggesttel").val();
+		var PassengerName = $(".pname").text();
+		var postdata = {
+			Class: "",
+			ClassDate: "",
+			ClassTime: "",
+			Router: "",
+			CarVIN: "",
+			PassengerName: PassengerName,
+			PassengerPhone: suggesttel,
+			CompliantType: CompliantType,
+			PassengerOpinion: suggestput
+		}
+		console.log(postdata);
+		$.ajax({
+			url: Serverurl + furl,
+			type: "post",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				var type = result.type;
+				if(type == 1) {
+					mui.alert('感谢您的宝贵意见，我们将对您的意见进行相应改进！', '系统提示', function() {
+						history.back(-1);
+					});
+
+				}
+				if(type == 3) {
+					mui.alert('提交失败，请稍后重试！', '系统提示');
+				}
+			}
+		});
+	}
+</script>

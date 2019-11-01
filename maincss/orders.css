@@ -1,0 +1,15 @@
+.mainbg{ background: #f6dfbd url(../../common/images/topbg01.png) no-repeat; background-size: 100%; background-attachment: fixed;}
+.index_topbar{ background: url(../../common/images/topbg01.png) no-repeat; background-size: 100% 100%; padding: 1em 0 4em 0;}
+.orders_list{ padding: 0.6em 0.4em 1em 0.4em;}
+.orders_item{ background: rgba(255,255,255,0.85);  border-radius: 8px; margin-bottom: 0.6em;}
+.line_bg{ background: #ff6600; width: 5px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; margin-right: 0.4em;}
+.orders_main{ padding: 0.5em;}
+.orders_img{ width: 1em;}
+
+/*½Å²¿*/
+.footer01{ position: fixed; left: 0; bottom: 0; width: 100%; overflow: hidden; background:#efeff4; padding: 0.3em 0; z-index: 99;  box-shadow: 0 -2px 3px #ccc;} 
+.footer_img{ width: 1.6em;}
+.footer_box01{ width: 2.5em; height: 2.5em; background: #fff; border-radius: 50%; box-shadow:4px 0 12px #f79d72; }
+.noorder{  font-size: 0.9em; padding-bottom:5.8em;}
+.warmline{ width: 1.5em; height: 1px; background: #BABABA;}
+

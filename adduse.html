@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>添加乘客</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/person.css?v=1.6.0" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp bc-bg">
+		<div class="ub ub-ac edit_warn">
+			<div class="ub ub-ac editwarn_img">
+				<img class="ub ub-img umar-r" src="common/images/warn_img.png" />
+			</div>
+			<div class="ub sc-text ft085">请填写个人真实信息，否则将影响出行！</div>
+		</div>
+		<div class="ub ub-ver edit_box marb05">
+			<div class="ub edit_namebox">
+				<div class="ub ub-ac edit_left sc-text">姓名</div>
+				<div class="ub ub-ac ub-f1 uinput">
+					<input type="text" value="" placeholder="填写真实姓名" class="usenameput" />
+				</div>
+			</div>
+			<div class="ub edit_telbox">
+				<div class="ub ub-ac edit_left sc-text">手机号</div>
+				<div class="ub ub-ac ub-f1 uinput">
+					<input type="tel" value="" class="usetelput" placeholder="填写真实手机号" />
+				</div>
+			</div>
+		</div>
+		<div class="ub ub-ver edit_box">
+			<div class="ub edit_namebox">
+				<div class="ub ub-ac edit_left sc-text">身份证</div>
+				<div class="ub ub-ac ub-f1 uinput">
+					<input type="text" value="" class="useidcarput" placeholder="填写真实身份证号码" />
+				</div>
+			</div>
+		</div>
+		<div class="ub btn_box">
+			<div class="ub ub-f1 ub-ac ub-pc main_btn adduse_btn">
+				保存
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js?v=1.6.0"></script>
+<script>
+	$(function() {
+
+	});
+	sessionStorage.setItem("adduse-refresh", true);
+	//确认添加联系人
+    $(".adduse_btn").on("click", function () {
+        var usenameput = $(".usenameput").val();
+        var usetelput = $(".usetelput").val();
+        var useidcarput = $(".useidcarput").val();
+        var regname = checkname(usenameput);
+        var regtel = checktel(usetelput);
+        var regidcar = IdentityCodeValid(useidcarput); 
+        
+        if (regname === false) {
+            mui.alert('请输入正确的姓名！', '系统提示');
+            return;
+        }
+        if (regtel === false) {
+            mui.alert('请输入正确的手机号码！', '系统提示');
+            
+            return;
+        }
+
+        if (regidcar === false) {
+            mui.alert('请输入正确的身份证号码！', '系统提示');
+            return;
+        }
+        
+        var PIID = $(".modusemain").attr("PIID");
+        var WeChatID = localStorage.getItem("openid");
+        var PassengerType = "成人";
+        var IdType = "身份证";
+        var Sex = 0;
+        var furl = "/AboutClassAPIManage/PassengerInformationAPI/AddPassengerInformation";
+        var pram = {
+            PIID: PIID,
+            WeChatID: WeChatID,
+            Name: usenameput,
+            Sex: Sex,
+            PhoneNumber: usetelput,
+            PassengerType: PassengerType,
+            IdType: IdType,
+            IdNumber: useidcarput,
+        }
+        $.ajax({
+            url: Serverurl + furl,
+            type: "post",
+            async: false,
+            dataType: "json",
+            data: pram,
+            success: function (result) {
+                var type = result.type;
+                if (type != 1) {
+                    mui.alert('添加乘客信息失败，请重试！', '系统提示');
+                    return;
+                }
+                if (type == 1) {
+                    history.back(-1);
+                }
+            }
+
+        });
+    });
+</script>

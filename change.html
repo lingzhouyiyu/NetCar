@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>改签</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/change.css" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp mainbg">
+		<div class="ub ub-ver main_top">
+			<div class="ub ub-ver index_topbar">
+				<div class="ub ub-ac colwhite marb06">
+					<div class="ub ub-pc ub-f1 sure_left ftb ft25 marl06">
+						<span class="beginStation"></span>
+					</div>
+					<div class="ub ub-ac ub-f1 ub-ver sure_center ft09">
+						<div class="ub ">
+							<span class="useDates">2017-01-01</span>
+							<span class="useTimes">00:00</span>
+						</div>
+						<div class="ub ub-f1 suretline"></div>
+						<div class="ub ft09">
+							<span class="seating"></span>座车
+						</div>
+					</div>
+					<div class="ub ub-pc ub-f1 sure_left ftb ft25 marr06">
+						<span class="endStation"></span>
+					</div>
+				</div>
+				<div class="ub ft085 umar-t colwhite">
+					<div class="ub ub-ac ub-f1 ub-fh">
+						全程<span class="mile">0</span>公里
+					</div>
+					<div class="ub ub-ac ub-pe ub-f1 ub-fh">
+						预计<span class="yjtime">00:00</span>到达
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ub ub-ac refund_box">
+			<div class="ub ub-f1 gochange">
+				<div class="ub ub-ac refund_img">
+					<img class="ub ub-img" src="common/images/warming_img01.png" />
+				</div>
+				<div class="ub ub-f1 ub-ac colgloden gorule">
+					当前系统只支持单个乘客改签
+				</div>
+				
+			</div>
+		</div>
+		<div class="ub ub-ver person_list">
+
+		</div>
+		<!--底部状态按钮-->
+		<!--确定改签-->
+		<div class="ub orders_footer change_btn">
+			<div class="ub ub-ac ub-pc ub-f1 ub-fh bg_golden colwhite">
+				确定改签
+			</div>
+		</div>
+
+		<!--乘客模板-->
+		<div class="persontemp dhide">
+			<div class="ub ub-ver person_item" rel="check">
+				<div class="ub ub-f1 pitem_top">
+					<div class="ub ub-ac check_box width15">
+						<img class="check_img check_before" src="common/images/radio_imgbefore.png" />
+						<img class="check_img check_after dhide" src="common/images/radio_imgafter.png" />
+					</div>
+					<div class="ub ub-f1">
+						<div class="ub ub-ac person_img01">
+							<img class="ub ub-img" src="common/images/use01.png" />
+						</div>
+						<div class="ub ub-ver person_left ub-f1">
+							<div class="ub colgloden UserName"></div>
+							<div class="ub ft085 colgop Fidcar"></div>
+						</div>
+						<div class="ub ub-ac">
+							<span class="sc-text ft09 seatmum">0</span><span class="sc-text ft09 umar-r">座</span>
+							<span class="colgloden ft09">￥</span><span class="colgloden seatmoney">0</span>
+						</div>
+					</div>
+				</div>
+				<div class="ub ub-ver ub-f1 check_bottom padl15">
+					<div class="ub ub-ac pitem_bottom">
+						<div class="ub ub-ac pitem_bleft">
+							<div class="ub pitem_circle"></div>
+						</div>
+						<div class="ub ub-f1 pitem_bright ptbb startaddr">
+
+						</div>
+					</div>
+					<div class="ub ub-ac pitem_bottom">
+						<div class="ub ub-ac pitem_bleft">
+							<div class="ub pitem_circle"></div>
+						</div>
+						<div class="ub ub-f1 pitem_bright endaddr">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="Fsuperjs/Fsuper.js"></script>
+<script>
+	$(function() {
+		carDetail();
+		orderDetail();
+		yjtime();
+	});
+
+	//加载订单详情
+	var openid = localStorage.getItem("openid");
+	var ordergroupcode = localStorage.getItem("OrderGroupCode");
+	var EstimatedTime, OrderGroupStatus, ClassStatus, LastPayTime, IsComment, coupmoney;
+	var discountMoney, scoreMoney, ClassId, orderType, isPrint;
+	//加载头部详情
+	function carDetail() {
+		var furl = "/AboutClassAPIManage/CarOrderAPI/GetAboutClassInfo?ordergroupcode=" + ordergroupcode;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				$(".beginStation").text(result.resultdata.StartStationName);
+				$(".endStation").text(result.resultdata.EndStationName);
+				$(".useTimes").text(result.resultdata.UseTime);
+				$(".useDates").text(result.resultdata.UseDate);
+				$(".seating").text(result.resultdata.Seating);
+				$(".mile").text(result.resultdata.Mileage);
+				$(".totalmoney").text(result.ticketPrice);
+				$(".safemoney").text(result.orderstatustxt);
+				$(".discountmoney").text(result.orderstatustxt);
+				$(".scoremoney").text(result.orderstatustxt);
+				$(".mainorderid").text(result.orderCode);
+				$(".paytime").text(result.resultdata.EstimatedArrivalTime);
+				EstimatedTime = result.resultdata.EstimatedTime;
+
+			}
+		});
+	}
+	//获取订单详情
+	function orderDetail() {
+		var furl = "/AboutClassAPIManage/CarOrderAPI/GetCarOrderDetail?ordergroupcode=" + ordergroupcode;
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var datas = result.resultdata.userlist;
+				var length = result.resultdata.userlist.length;
+				coupmoney = result.resultdata.OrderMoney;
+				discountMoney = result.resultdata.discountMoney;
+				scoreMoney = result.resultdata.scoreMoney;
+				ClassId = result.resultdata.ClassId;
+				orderType = result.resultdata.orderType;
+				isPrint = result.resultdata.isPrint;
+
+				if(length > 0) {
+					for(var i = 0; i < length; i++) {
+						adduse(datas[i]);
+					}
+				} else {
+					// $(".nocarwarm").removeClass("dhide");
+				}
+			}
+		});
+	}
+
+	function adduse(data) {
+		var list = $(".person_list");
+		var useitem;
+		var OrderStatus = data.OrderStatus;
+		if(OrderStatus == 2 || OrderStatus == 5) { //已退款
+			return;
+		} else {
+			useitem = $(".persontemp .person_item").clone();
+		}
+		useitem.find(".UserName").text(data.Fname);
+		useitem.find(".Fidcar").text(data.Fidcar);
+		useitem.find(".seatmum").text(data.SeatNum);
+		useitem.find(".seatmoney").text(data.SeatMoney);
+		useitem.find(".startaddr").text(data.beginAddress);
+		useitem.find(".endaddr").text(data.endAddress);
+		useitem.attr("orderid", data.orderid);
+		useitem.attr("Fname", data.Fname);
+		useitem.attr("Fphone", data.Fphone);
+		useitem.attr("SeatNum", data.SeatNum);
+		useitem.attr("SeatMoney", data.SeatMoney);
+		useitem.attr("Fidcar", data.Fidcar);
+
+		useitem.attr('onclick', "dbcheck(this)");
+		list.append(useitem);
+	}
+
+	//退票、改签选择
+	function dbcheck(dom) {
+		var check_before = $(dom).find(".check_before");
+		var check_after = $(dom).find(".check_after");
+		$(".check_before").removeClass("dhide");
+		$(".check_after").addClass("dhide");
+        $(".person_item ").removeClass("haschecked");
+		$(".persontemp .person_item").attr("rel", "check");
+		$(check_before).addClass("dhide");
+		$(check_after).removeClass("dhide");
+		$(dom).addClass("haschecked");
+	}
+
+	//获取改签数据
+	function eachlist(doms) {
+		var datas = {};
+		var coupmoney = 0;
+		var useorderid = [];
+		if($(doms).length > 0) {
+			doms.each(function(i, item) {
+				var changeAgoOrderId = $(item).attr("orderid");
+				useorderid.push(changeAgoOrderId);
+			});
+		}
+
+		datas.useorderid = useorderid;
+		return datas;
+
+	}
+
+	//去改签
+	$(".change_btn").click(function() {
+		var length = $(".person_list .haschecked").length;
+		localStorage.setItem("changeleg", length);
+		if(length > 0) {
+			change();
+		} else {
+			mui.alert("请选择需改签的乘客！", '系统提示');
+			return;
+		}
+	});
+
+	function change() {
+		var list = $(".person_list .haschecked");
+		var changeinfor = eachlist(list);
+		//var ischange = 1;
+		var changeorderid = JSON.stringify(changeinfor);
+		var changestart = $(".beginStation").text();
+		var changeend = $(".endStation").text();
+		var changedate = $(".useDates").text();
+		localStorage.setItem("changestart", changestart);
+		localStorage.setItem("changeend", changeend);
+		localStorage.setItem("changedate", changedate);
+		//localStorage.setItem("ischange", ischange);
+		localStorage.setItem("changeorderid", changeorderid);
+		console.log(changeorderid);
+		mui.openWindow({
+			url: 'changecar.html',
+			id: 'changecar',
+		});
+		//		var furl = "/AboutClassAPIManage/CarOrderAPI/ChangeCarOrderForWechat?changeCarOrder=" + postdata;
+		//		$.ajax({
+		//			url: Serverurl + furl,
+		//			type: "post",
+		//			async: false,
+		//			dataType: "json",
+		//			success: function(result) {
+		//				var type = result.type;
+		//				if(type == 1) {
+		//					mui.openWindow({
+		//						url: 'changecar.html',
+		//						id: 'changecar',
+		//					});
+		//				} else {
+		//					mui.alert("改签失败，请稍后重试！", '系统提示');
+		//				}
+		//
+		//			}
+		//
+		//		});
+
+	}
+
+	//预计几点到达
+	function yjtime() {
+		var data01 = $(".useDates").text();
+		var data02 = $(".useTimes").text();
+
+		var endtime = data01 + " " + data02;
+		var ttd = new Date(endtime.replace("-", "/").replace("-", "/"));
+		var b = EstimatedTime * 60;
+		ttd.setMinutes(ttd.getMinutes() + b, ttd.getSeconds(), 0);
+		var starttime = new Date(ttd);
+		var hours = starttime.getHours();
+		var mints = starttime.getMinutes();
+		if(hours < 10) {
+			hours = '0' + hours;
+		}
+		if(mints < 10) {
+			mints = '0' + mints;
+		}
+		var yjtdtime = hours + ":" + mints;
+		//localStorage.setItem("yjtdtime", yjtdtime);
+		$(".yjtime").text(yjtdtime);
+	}
+</script>

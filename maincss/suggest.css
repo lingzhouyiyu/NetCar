@@ -1,0 +1,15 @@
+.suggest{ padding-top: 1em; }
+.suggest_in{ padding: 0.6em; }
+.cont{ margin-top: 1em;  padding-left: 0.5em; padding-right: 0.5em; margin-left: 1em; margin-right: 1em; border-radius: 8px; border: 1px solid #ccc; padding-top: 2px; padding-bottom: 2px; }
+.btn{ margin-top: 3em; background: #ff6600; height: 2.6em; margin-left:1em; margin-right: 1em; color: #fff; font-weight: 600; border-radius: 0.3em; margin-bottom: 3em; border-radius: 8px; }
+.txtput{margin-left: 1em; margin-right: 1em; height:6em; padding:0.6em; border-radius: 8px; border: 1px solid #ccc;}
+
+
+.personal_top{ background: url(../common/images/person08.jpg) no-repeat; background-size: cover; padding: 2em 0.6em ;}
+.personal_head img{ width: 5em; height: 5em; border-radius: 50%; border: 1px solid #fff; }
+.person_sign img{ width: 1.8em;}
+.personal_topb{ margin-top: 1em;}
+
+.suggest_box{ padding: 1em;}
+.check_item img{ width: 1em; margin-right: 0.4em;}
+.marb1{ margin-bottom: 1em;}

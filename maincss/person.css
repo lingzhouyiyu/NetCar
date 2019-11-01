@@ -1,0 +1,63 @@
+.person_top{ background: #fcad59 url(../common/images/person_bg02.jpg) repeat-y; padding: 2.5em 0 0em 0; background-size: 100% 100%; z-index: 99;}
+.person_topbtm{ background: url(../common/images/person_bg.jpg) no-repeat; background-size: 100% 100%; padding: 3em 0; margin-top: -2em;}
+.logo_img{ width: 95px; height: 95px; }
+.person_name{ color: #fff; margin-top: 1em; }
+.vip_p,.install_p{ color: #fecdac;}
+.vip_img,.install_img{ width: 1em; margin-right: 3px;}
+.p_centerline{color: #fecdac; margin: 0 8px;}
+.p_center{ margin-top: 0.5em;}
+.wrap_top{ background: #fcad59;}
+.person_topnav{ background: #fff; padding: 1.2em 0;}
+.person_topnav img{ width: 1.36em;} 
+.person_list{ margin-top: 0.6em; padding-bottom: 4em;}
+.person_item{ background: #fff; padding:0.6em;}
+.border_b{ border-bottom: 1px solid #efefef;}
+.person_img img{ width: 1.3em; margin-right: 0.8em;}
+
+/**adduselist style**/
+.adduse_btn{ background: #fff; height: 2.8em;}
+.adduse_img img{ width: 1.3em;}
+.use_list{ margin-top: 0.6em;}
+.use_item{ background: #fff; padding: 0.6em; border-bottom: 1px solid #EFEFEF;}
+.use_delete img{ width: 1.4em; margin-right: 1em;}
+.use_edit img{ width: 1.4em;}
+
+/**edituse**/
+.edit_warn{ padding:2em 0.6em 1.5em 0.6em;}
+.editwarn_img img{ width: 1.1em;}
+.edit_box{ background: #fff; margin: 0 0.6em; border-radius: 5px; border: 1px solid #efefef;}
+.edit_left{ width: 4.2em;}
+.edit_namebox{ padding: 7px 0.5em;border-bottom: 1px solid #efefef;}
+.edit_telbox{ padding: 7px 0.5em;}
+.marb05{ margin-bottom: 0.5em;}
+.btn_box{ padding: 2.5em 1.5em;}
+.main_btn{ background:#ff6600 url(../common/images/person_bg02.jpg) repeat-y; height: 2.8em; border-radius: 5px; color: #fff; background-size: 100% 100%;}
+
+/**suggest**/
+.suggest_box{padding:1em}
+.check_item img{width:1em;margin-right:.4em}
+.contitem{ margin-bottom: 1.5em;}
+.radio_img{ width: 1.1em;}
+.install_left{ margin-left: 0.6em;}
+.contleft{ width: 5.4em;}
+.marb1{margin-bottom:1em}
+.suggest{padding-top:1em}
+.suggest-title{ margin-bottom: 0.5em; padding-left: 1em;}
+.dbtelbox{ padding: 1em; font-size: 0.9em;}
+.suggest_in{padding:.6em}
+.cont{padding-left:.5em;padding-right:.5em;border-radius:8px;border:1px solid #ccc;}
+.suggestbtn{margin-top:2em;background:url(../common/images/person_bg02.jpg) repeat-y; background-size: 100% 100%; height:2.6em;margin-left:1em;margin-right:1em;color:#fff;font-weight:600;border-radius:.3em;margin-bottom:3em;border-radius:8px}
+.txtput{margin-left:1em;margin-right:1em;height:6em;padding:.6em;border-radius:8px;border:1px solid #ccc}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: #969696; 
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+color: #969696; 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+color: #969696; 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+color: #969696; 
+} 

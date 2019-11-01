@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>来云游出行App下载</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<style>
+			.mainbg{ background: url(common/images/loadbg.jpg) repeat-x; background-size: 100% 100%; }
+			.footer-bg{ background: url(common/images/loadimg.png) no-repeat left bottom; background-size: 100%; }
+			.wxcode{  width: 8em; height: 8em;  margin-bottom: 0.8em;}
+			.wxcode img{ width: 7.5em; height: 7.5em; border-radius:8em;}
+			.ft02{ font-size: 1.5em;}
+			.download-btn{ border: 1px solid #fff; padding: 5px 0; width: 8.2em; border-radius: 5px;}
+			.android-btn{ margin-right: 2em;}
+			.main-title{ padding: 3.5em 0;}
+		</style>
+	</head>
+
+	<body class="ub ub-ver um-vp bg-white mainbg">
+		<div class="ub ub-ac ub-ver ub-f1 footer-bg">
+			<div class="ub ub-ac ub-pc colwhite ft125 main-title">来云游出行手机客户端下载</div>
+			<div class="ub ub-ac ub-pc">
+				<div class="ub ub-ac ub-pc wxcode">
+					<img src="common/images/lyy_logo.jpg" />
+				</div>
+			</div>
+			<div class="ub ub-ac ub-pc colwhite ft085" style="margin-bottom: 2em;">
+				点击下面按钮下载手机客户端
+			</div>
+			<div class="ub ub-ac ub-pc">
+				<div class="ub ub-ac ub-pc colwhite download-btn android-btn">
+					<span class="fa fa-android ft02"></span>
+					<span class="ft09">Android版下载</span>
+				</div>
+				<div class="ub ub-ac ub-pc colwhite download-btn apple-btn">
+					<span class="fa fa-apple ft02"></span>
+					<span class="ft09">iOS版下载</span>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js?v=1.0"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="scripts/Fsuper.js"></script>
+<script>
+	$(function() {
+		
+	});
+	$('.android-btn').on('click',function(){
+		mui.openWindow({
+			url: 'https://fir.im/pdyx'
+		});
+	});
+	$('.apple-btn').on('click',function(){
+		mui.alert('近期将上线，敬请期待！', '系统提示');
+	})
+</script>

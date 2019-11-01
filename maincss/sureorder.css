@@ -1,0 +1,128 @@
+.mainbg{ background: #efeff4;}
+.index_topbar{ background: url(../common/images/topbg01.png) no-repeat; background-size: 100% 100%; padding: 1em 0 2.5em 0;}
+.suretline{ height: 1px; background: #fff; width: 100%; margin: 2px 0;}
+.floatlayer{ position: fixed; left: 0; bottom: 0.6em; width: 100%; z-index: 500;}
+.layerbox{ margin: 0 0.6em; }
+.layerbox01{ }
+.checkbox-img{ width: 1em; margin-right: 8px;}
+.check-img{ width: 1em; margin-left: 0.5em;}
+.layerbox-top{ background: rgba(255,255,255,0.9); width: 100%; border-radius: 5px; border:1px solid #efeff4;  border-radius: 0.4em; box-shadow:2px 2px 3px #aaaaaa; margin-bottom: 0.5em;}
+.ismorebox{ height: 2.4em; padding: 0 0.6em; border-bottom: 1px solid #E1E1E1;}
+.addres-box{ padding:0 0.6em;}
+.left-circle{ font-size: 0.8em; border:1px solid #cacecf; border-radius: 50%; height: 1.5em; width: 1.5em; color: #969696; margin-right: 5px;}
+.addr-item{ padding:0.7em 0; }
+.normal-txt{ font-size: 0.85em; border: 1px solid #E1E1E1; padding: 0 10px; border-radius: 5px; margin-left: 0.5em; height: 2em;}
+.saeme-use{ padding: 0.6em 0; margin: 0 0.6em;}
+.warnimg{ width: 0.9em;}
+.diffent-use{  overflow: auto;}
+.diffent-box{ background: #cecfd1; padding-left: 5px;}
+.diffent-item{ background: #cecfd1; height: 42px;  }
+.diffent-main{ background: #fff; border-radius: 5px; margin: 5px 5px 5px 0; width: 5em; height: 32px; }
+.curdiffent{ margin-top:0; border-top-left-radius: 0; border-top-right-radius: 0; height: 37px;}
+.layerbox-bottom{ background: rgba(255,255,255,0.9); width: 100%; border-radius: 5px; border:1px solid #efeff4;  border-radius: 0.4em; box-shadow:2px 2px 3px #aaaaaa;}
+.layer-disinfor{ }
+.dis-item{}
+.pre-item{padding:0 0.6em; font-size: 0.9em; margin: 0.8em 0;}
+.oldaddr-item{ background: #fff; padding: 0.8em 0.6em;  border-bottom: 1px solid #E1E1E1;}
+.payfooter{ height: 3em; border-top: 1px solid #E1E1E1;}
+.sfooter_right{ background: #f29c5a; color: #fff; border-bottom-right-radius: 5px;}
+.amap-info-content{ border-radius: 5px;}
+
+/*搜索头部*/
+.search_top{ background: #fff; position: fixed; left: 0; top: 0; width: 100%; overflow: hidden; z-index: 200; box-shadow: 0 3px 2px #cdcdcd;}
+.search_line{ height: 1em; width: 1px; background: #f29c5a;}
+.search_clear{ width: 1.5em;}
+.uinput{ padding: 5px 10px;}
+.search_content{  padding-top: 2.7em; margin: 0 0.6em; overflow: hidden;}
+.content_stop{ padding: 0.5em;/* border-bottom: 1px solid #E1E1E1;*/ padding-bottom: 1em; background: #fff;}
+.addr_img01{ width: 1.2em; margin-right: 0.5em;}
+.addr_img02{ width: 1.1em;}
+.recomend_sign{ background: #FF5053; color: #fff; font-size: 0.75em; height: 1.2em; border-radius: 5px; height: 1.8em;width: 3em;}
+.cfdlist,.mddlist{ left: 0 !important; top: 0 !important; width: 100% !important;}
+.startlist li{ padding:0.4em 0.5em 0.4em 2em;  border-bottom: 1px solid #E6E6E6; background: #fff url(../common/images/mapmark.png) no-repeat ; background-position: 8px 12px; }
+.auto-item{ padding:0.8em 0.6em 0.8em 2em;  border-bottom: 1px solid #E6E6E6; background: #fff url(../common/images/mapmark.png) no-repeat ; background-position: 8px 12px; font-size: 1em; white-space: normal !important;}
+.recomend_img{ background: #fff url(../common/images/recomend_img.png) no-repeat ; background-position: 8px 15px;}
+.startlist li div,.startlist02 li div { font-size: 0.85em; color: #969696;}
+.radio_img{ width: 1.1em;}
+.go_img img{ width:0.5em; margin-left: 0.8em;}
+
+.pay_detail{ position: fixed; left: 0; top: 0; width: 100%; bottom:3.7em ; background: rgba(0,0,0,0.6); z-index: 999;}
+.pay_deaillmain{ position: absolute; left: 0.6em; bottom: 0; right: 0.6em; border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.paydeail_top{ background: #F5F5F5; height: 2.6em; margin-bottom: 0.4em; padding-left: 0.6em; border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.pay_deaill{ background: #fff;}
+.paydeail_item{ height: 2em; padding: 0 0.4em;}
+
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: #ccc; font-size: 0.85em;
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+color: #ccc; font-size: 0.85em;
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+color: #ccc; font-size: 0.85em;
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+color: #ccc; font-size: 0.85em;
+} 
+
+
+/*页面切换动画*/
+.fix_box{position:fixed;top:0;left:0;z-index:99;overflow:auto;width:100%;height:100%;background:rgba(0,0,0,.5);}
+.bg_white{height:3em;background:#fff;}
+.dhide{display:none!important;}
+
+.list_item{height:2.8em;color:#F0AD4E;text-decoration:none;}
+.switch_page{position:fixed;top:0;left:0;z-index:999;overflow:auto;width:100%;height:100%;background:#F5F5F5;}
+.couponpage{position:fixed;top:0;left:0;z-index:99;overflow:auto;width:100%;height:100%;background:rgba(0,0,0,0.5);}
+.coupon_main{ position: absolute; left: 0; bottom: 0; width: 100%; background: #fff;  height: 65%; overflow: auto; border-top-left-radius: 0.6em; border-top-right-radius: 0.6em;}
+.coupon_title{ height: 2.6em; background: #fff; }
+.coupon_list{padding: 1em 0.6em 2em 0.6em;  height: auto;}
+.coupon_item{ border: 1px solid rgba(204,204,204,0.21); border-radius: 0.4em; margin-bottom: 0.6em; box-shadow:2px 2px 3px #aaaaaa;}
+.coupon_top{ background: #fff; padding: 0.5em; border-top-right-radius: 0.4em; border-top-left-radius: 0.4em;}
+.coupon_left{ width: 5em;}
+.coupon_botom{padding: 0.6em 0.5em; background: rgba(204,204,204,0.21);}
+.coupon_active{border:1px solid #00CC66;  border-radius: 0.4em; box-shadow:2px 2px 3px #a4f9cf;}
+.coupon_btnbox{ padding:2em 1em 0 1em;}
+.sure_use{ background: #f29c5a; height: 2.8em; color: #fff; border-radius: 0.4em;}
+.instruction{ padding: 2em 0;}
+.instruction_left{ padding-right: 5px;}
+.instruction_right{ padding-left: 5px;}
+.border_r{ width: 1px; height: 0.9em; background: #C1C1C1;}
+.center_line{ width: 2em; height: 1px; background: #969696; margin:0 2px;}
+.getcoupon_list{padding: 1em 0.6em 2em 0.6em;}
+
+.sure_coupon{ background: #f29c5a; color: #fff; height: 2.8em; position: fixed; left: 0; bottom: 0; width: 100%;}
+.coupon_img{ width: 1.2em;}
+
+
+.curaddr_box{ color: #fff; margin-top: 1.5em; padding: 0 0.6em; font-size: 0.9em;}
+.curmarker{ font-size: 1.2em;}
+.nohistory{ background: #fff; padding: 0.5em 0;}
+.mapbox{ height: 100%; width: 100%; overflow: hidden;}
+.qmap_bottom{ position: fixed; left: 0; bottom: 0.6em;width: 100%; z-index: 999; }
+.qmap_btmmain{background: #fff; border: 1px solid #eee; box-shadow:2px 2px 3px #aaaaaa;  min-height: 2.8em; margin: 0 0.6em;}
+.btmmark img{ width: 1.3em; margin: 0 0.4em;}
+.qmap_txt{ font-size: 0.9em; min-height: 2.8em; }
+.qmap_sure,.endmap_sure{ color: #f29c5a; padding: 0 0.4em;}
+.qmap_mark{ position: fixed; left: 50%; top: 50%;  z-index: 99;}
+.qmap_mark img{ width: 32PX;}
+.outdialog_box {
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.4);
+    }
+    .outdialog_main{ background: #fff; width: 17.6em; border-radius: 8px;}
+    .outtitle{ font-size: 1.125em; margin-top: 15px;}
+.outtxt{ padding: 1.2em 1em; font-size: 1em; text-align: center;}
+.out_btnbox{ border-top: 1px solid #E1E1E1; height: 2.8em;}
+.false_btn{border-right: 1px solid #E1E1E1;}
+.true_btn{ color: #5D5D5D;}
+.map_conttxt{ position: relative;}
+.mapsign{ position: absolute; bottom: -1.125em; color: #fff;}
+.map_contbox{ background: #fff; position: fixed; left: 50%; top: 40%; width: 16em; margin-left: -8em; padding: 0.6em; border-radius: 5px; text-align: center; font-size: 0.85em; color: #FF3300;}
+.beginhis_item,.endhis_item{ padding: 0.8em 0;}

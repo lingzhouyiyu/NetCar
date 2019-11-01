@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+
+	<head>
+		<title>领取优惠券</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link href="common/css/mui.min.css" rel="stylesheet" />
+		<link href="common/css/fonts/font-awesome.min.css" rel="stylesheet" />
+		<link href="common/css/idangerous.swiper.css" rel="stylesheet" />
+		<link href="common/css/icon.css" rel="stylesheet" />
+		<link href="common/css/ui-base.css" rel="stylesheet" />
+		<link href="common/css/ui-box.css" rel="stylesheet" />
+		<link href="common/css/ui-color.css" rel="stylesheet" />
+		<link href="common/css/common.css" rel="stylesheet" />
+		<link href="common/css/control.css" rel="stylesheet" />
+		<link href="maincss/coupon.css" rel="stylesheet" />
+	</head>
+
+	<body class="bc-text um-vp bc-bg">
+
+		<!--可使用优惠券列表-->
+		<div class="ub ub-ver getcoupon_list">
+			<div class="ub ub-ver available_list">
+
+			</div>
+
+			<!--使用说明-->
+			<div class="ub ft085 ub ub-ac ub-pc instruction useable_instr">
+				<div class="ub ub-ac sc-text instruction_item instruction_left">
+					没有更多优惠券
+				</div>
+				<div class="ub border_r"></div>
+				<div class="ub ub-ac colhgreen instruction_item instruction_right">
+					优惠券使用说明
+				</div>
+			</div>
+		</div>
+
+		<!--可使用优惠券模板-->
+		<div class="useable_temp dhide">
+			<div class="ub ub-f1 ub-ver coupon_item useable_item">
+				<div class="ub ub-f1 coupon_top">
+					<div class="ub ub-pc  ub-f1 ub-ver">
+						<div class="ub umar-b colhgreen">
+							<span>￥</span>
+							<span class="countmoney" style="font-size: 1.65em;">0</span>
+						</div>
+						<div class="ub ub-ac sc-text ft085">
+							<div class="ub">可用线路：</div>
+							<div class="ub allways dhide">所有线路</div>
+							<div class="ub ub-ac specityways">
+								<span class="linestart cfcstxt">昭通</span>
+								<span class="ub center_line"></span>
+								<span class="lineend mdcstxt">昆明</span>
+							</div>
+						</div>
+						<div class="ub ft085 sc-text umar-t">
+							<div class="ub ub-f1">
+								<div class="ub">有效期：</div>
+								<div class="ub limittime">
+									<span class="starttime">2018-12-09</span>-
+									<span class="endtime">2017-12-6</span>
+								</div>
+								<div class="ub unlimittime dhide">
+									永久有效
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ub ub-pc ub-ver getcupright">
+						<div class="ub ft085 umar-b">
+
+							<div class="ub ub-f1 ub-pe ft125 colgloden">
+								立即领取
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="ub ft080 sc-text coupon_botom">
+					<div class="ub ub-f1 ub-fh dhide">
+						首次抵扣20%票款金额
+					</div>
+					<div class="ub ub-f1 ub-fh ub-pe dhide">
+						非首次抵扣20%票款金额
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="common/js/jquery-2.1.4.min.js"></script>
+<script src="common/js/mui.min.js"></script>
+<script src="scripts/Fsuper.js"></script>
+<script>
+	$(function() {
+		available();
+
+	});
+
+	var openid = localStorage.getItem("openid");
+
+	function available() {
+		var furl = "/AboutClassAPIManage/CouponManagementsAPI/GetListActivityCoupons";
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				var datas = result.resultdata;
+				var length = datas.length;
+				if(length > 0) {
+					for(var i = 0; i < length; i++) {
+						addavail(datas[i]);
+					}
+				} else {
+					return;
+				}
+			}
+		});
+	}
+
+	function addavail(datas) {
+		var list = $(".available_list");
+		var item = $(".useable_temp .useable_item").clone();
+		var linestart = datas.StartStationName;
+		var lineend = datas.EndStationName;
+		var starttime = datas.StartTime;
+		var endtime = datas.EndTime;
+		var countmoney = datas.Value;
+		var coupname = datas.Name;
+		var coupid = datas.Id;
+		if(linestart == "" || linestart == null || lineend == "" || lineend == null) {
+			item.find(".allways").removeClass("dhide");
+			item.find(".specityways").addClass("dhide");
+		}
+		if(endtime == "" || endtime == null) {
+			item.find(".unlimittime").removeClass("dhide");
+			item.find(".limittime").addClass("dhide");
+		}
+		item.find(".linestart").text(linestart);
+		item.find(".lineend").text(lineend);
+		item.find(".countmoney").text(countmoney);
+		item.find(".starttime").text(starttime);
+		item.find(".endtime").text(endtime);
+		item.attr("coupid", coupid);
+		item.attr("onclick", "dbcoupon(this)");
+		list.append(item);
+	}
+
+	//可使用优惠券点击
+	function dbcoupon(dom) {
+		
+		var cuurid = $(dom).attr("coupid");
+		var couponarry  = [];
+		couponarry.push(cuurid);
+		
+		senddata = {
+			openid:openid,
+			Id:couponarry  
+		}
+		console.log(couponarry);
+		var furl = "/AboutClassAPIManage/CouponManagementsAPI/GetFirstNewUser?openid="+openid+"&&Id="+couponarry;
+		console.log(senddata);
+		$.ajax({
+			url: Serverurl + furl,
+			type: "get",
+			async: false,
+			dataType: "json",
+			//data: senddata,
+			success: function(result) {
+				var type = result.type;
+				var message = result.message;
+				if(type == 1){
+					mui.toast("领取成功，赶快去使用吧！");
+				}
+				if(type == 3){
+					mui.toast(message);
+				}
+			}
+		});
+	}
+</script>
